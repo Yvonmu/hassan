@@ -95,7 +95,7 @@ export default function SocialFeeds() {
 
   const handleViewProfile = (platform: string) => {
     const urls = {
-      Twitter: "https://twitter.com/hassan_diplomatic",
+      Twitter: "https://x.com/maecidjibouti",
       LinkedIn: "https://linkedin.com/in/hassan-adan-hassan",
     }
     window.open(urls[platform as keyof typeof urls], "_blank")

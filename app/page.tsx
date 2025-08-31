@@ -4,10 +4,13 @@ import DiplomaticExcellence from "@/components/diplomatic-excellence"
 import ConsularExcellence from "@/components/consular-excellence"
 import NaturalWonders from "@/components/natural-wonders"
 import StayConnected from "@/components/stay-connected"
-import SocialFeeds from "@/components/social-feeds"
-import ContactSection from "@/components/contact-section"
-import OfficeLocation from "@/components/office-location"
+// import SocialFeeds from "@/components/social-feeds"
+// import ContactSection from "@/components/contact-section"
+import ContactSection1 from "@/components/ContactSection"
+// import OfficeLocation from "@/components/office-location"
 import Footer from "@/components/footer"
+import { SocialFeedsSection } from "@/components/SocialFeedsSection"
+import JurisdictionSection from "@/components/Jurisdiction"
 
 export default function Home() {
   return (
@@ -16,11 +19,14 @@ export default function Home() {
       <HeroSection />
       <DiplomaticExcellence />
       <ConsularExcellence />
+      <JurisdictionSection/>
       <NaturalWonders />
       <StayConnected />
-      <SocialFeeds />
-      <ContactSection />
-      <OfficeLocation />
+      <SocialFeedsSection/>
+      {/* <SocialFeeds /> */}
+      <ContactSection1/>
+      {/* <ContactSection /> */}
+      {/* <OfficeLocation /> */}
       <Footer />
     </main>
   )
