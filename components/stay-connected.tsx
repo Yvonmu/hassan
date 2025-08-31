@@ -55,47 +55,39 @@ export default function StayConnected() {
     return () => observer.disconnect();
   }, []);
 
-  const content = [
-    {
-      title: "ADI - Agence Djiboutienne d'Information",
-      description: `The official national news agency 
-providing comprehensive coverage of 
-government activities, economic 
-developments, and national affairs.`,
-      image: "/images/ea18ec7b42462a5d1315a85007aab2bc.jpg",
-      type: t("culturalFestivalType"),
-      date: t("culturalFestivalDate"),
-      location: t("culturalFestivalLocation"),
-      buttonLink: `Visit adi.dj`,
-      link: `http://adi.dj/`,
-    },
-    {
-      title: `La Nation Newspaper`,
-      description: `Leading independent newspaper offering 
-in-depth analysis of political, 
-economic, and social issues affecting 
-Djibouti and the Horn of Africa region.`,
-      image: "/images/cce0e77259b77afb2c703c4275ec0a85.jpg",
-      type: t("economicSummitType"),
-      date: t("economicSummitDate"),
-      location: t("economicSummitLocation"),
-      buttonLink: `Visit lanation.dj`,
-      link: `http://lanation.dj/`,
-    },
-    {
-      title: `RTD Television & Radio`,
-      description: `Radio-Télévision de Djibouti provides 
-live broadcasts, documentaries, and 
-cultural programming with comprehensive 
-coverage.`,
-      image: "/images/live.png",
-      type: t("marineProjectType"),
-      date: t("marineProjectDate"),
-      location: t("marineProjectLocation"),
-      buttonLink: `Watch RTD on YouTube`,
-      link: `https://www.youtube.com/@RTDTELEDJIBOUTI`,
-    },
-  ];
+ const content = [
+  {
+    title: t("adiTitle"), // "ADI - Agence Djiboutienne d'Information"
+    description: t("adiDescription"), 
+    image: "/images/ea18ec7b42462a5d1315a85007aab2bc.jpg",
+    type: t("culturalFestivalType"),
+    date: t("culturalFestivalDate"),
+    location: t("culturalFestivalLocation"),
+    buttonLink: t("adiButtonLink"), // "Visit adi.dj"
+    link: "http://adi.dj/",
+  },
+  {
+    title: t("laNationTitle"), // "La Nation Newspaper"
+    description: t("laNationDescription"),
+    image: "/images/cce0e77259b77afb2c703c4275ec0a85.jpg",
+    type: t("economicSummitType"),
+    date: t("economicSummitDate"),
+    location: t("economicSummitLocation"),
+    buttonLink: t("laNationButtonLink"), // "Visit lanation.dj"
+    link: "http://lanation.dj/",
+  },
+  {
+    title: t("rtdTitle"), // "RTD Television & Radio"
+    description: t("rtdDescription"),
+    image: "/images/live.png",
+    type: t("marineProjectType"),
+    date: t("marineProjectDate"),
+    location: t("marineProjectLocation"),
+    buttonLink: t("rtdButtonLink"), // "Watch RTD on YouTube"
+    link: "https://www.youtube.com/@RTDTELEDJIBOUTI",
+  },
+];
+
 
 
   const handleLearnMore = (title: string) => {

@@ -3,17 +3,18 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
 import { ContactModal } from "./ContactModal";
 import { useState } from "react";
+import { useTranslation } from "@/hooks/use-translation";
 
 export const VisaSection = () => {
+  const { t } = useTranslation();
   const [showEmbassyModal, setShowEmbassyModal] = useState(false);
- const handleVisaPortal = () => {
+
+  const handleVisaPortal = () => {
     window.open("https://www.evisa.gouv.dj/applicant-api/#/", "_blank");
   };
   const handleEmbassyPortal = () => {
     window.open("https://www.visahq.com/djibouti/embassy/ethiopia/", "_blank");
   };
-
-  
 
   return (
     <>
@@ -28,13 +29,14 @@ export const VisaSection = () => {
               </div>
 
               <h2 className="text-2xl font-bold text-foreground mb-4">
-                Visa & Immigration Services
+                {t("visaTitle")} {/* "Visa & Immigration Services" */}
               </h2>
 
               <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-                For visa applications, passport renewals, and official
-                immigration documentation, please use the official Djibouti
-                eVisa portal or contact the Embassy directly.
+                {t("visaDescription")} 
+                {/* "For visa applications, passport renewals, and official
+                    immigration documentation, please use the official Djibouti
+                    eVisa portal or contact the Embassy directly." */}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -42,14 +44,14 @@ export const VisaSection = () => {
                   onClick={handleVisaPortal}
                   className="bg-primary hover:bg-primary text-primary-foreground px-8"
                 >
-                  Visit eVisa Portal
+                  {t("visitEVisaPortal")} {/* "Visit eVisa Portal" */}
                 </Button>
                 <Button
                   onClick={handleEmbassyPortal}
                   variant="outline"
                   className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8"
                 >
-                  Embassy Information
+                  {t("embassyInformation")} {/* "Embassy Information" */}
                 </Button>
               </div>
             </CardContent>

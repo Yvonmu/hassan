@@ -178,94 +178,66 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="border-t border-border flex flex-col gap-4 mt-12 pt-8">
-          <h1 className="text-3xl text-center">
-            Official Government Resources
-          </h1>
-          <p className="text-center">
-            Access verified links to Djibouti government ministries and services
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            <Card className="border hover:shadow-lg transition-all duration-300">
-              <CardHeader className="font-bold text-xl">
-                Executive Branch
-              </CardHeader>
-              <CardContent className="p-4 flex flex-col items-start justify-between h-full">
-                <Link
-                  href={"http://presidence.dj/"}
-                  className="flex gap-2 text-sm items-center"
-                >
-                  <img src="/icons/tick.svg" alt="" className="h-2.5 w-2.5" />{" "}
-                  <p>Presidency of Djibouti</p>
-                </Link>
-                <Link
-                  href={"http://primature.gouv.dj/"}
-                  className="flex gap-2 text-sm items-center"
-                >
-                  <img src="/icons/tick.svg" alt="" className="h-2.5 w-2.5" />{" "}
-                  <p>Prime Minister&apos;s Office</p>
-                </Link>
-                <Link
-                  href={"http://presidence.dj/composition"}
-                  className="flex gap-2 text-sm items-center"
-                >
-                  <img src="/icons/tick.svg" alt="" className="h-2.5 w-2.5" />{" "}
-                  <p>Complete Government Directory</p>
-                </Link>
-              </CardContent>
-            </Card>
-            <Card className="border hover:shadow-lg transition-all duration-300">
-              <CardHeader className="font-bold text-xl">
-                Key Ministries
-              </CardHeader>
-              <CardContent className="p-4 flex flex-col items-start justify-between h-full">
-                <Link
-                  href={"http://diplomatie.gouv.dj/"}
-                  className="flex gap-2 text-sm items-center"
-                >
-                  <img src="/icons/tick.svg" alt="" className="h-2.5 w-2.5" />{" "}
-                  <p>Foreign Affairs & International Cooperation</p>
-                </Link>
-                <Link
-                  href={"http://ministere-finances.dj/"}
-                  className="flex gap-2 text-sm items-center"
-                >
-                  <img src="/icons/tick.svg" alt="" className="h-2.5 w-2.5" />{" "}
-                  <p>Economy & Finance</p>
-                </Link>
-                <Link
-                  href={"http://justice.gouv.dj/"}
-                  className="flex gap-2 text-sm items-center"
-                >
-                  <img src="/icons/tick.svg" alt="" className="h-2.5 w-2.5" />{" "}
-                  <p>Ministry of Justice</p>
-                </Link>
-              </CardContent>
-            </Card>
-            <Card className="border hover:shadow-lg transition-all duration-300">
-              <CardHeader className="font-bold text-xl">
-                Public Services
-              </CardHeader>
-              <CardContent className="p-4 flex flex-col items-start justify-between h-full">
-                <Link
-                  href={"http://logement.gouv.dj/"}
-                  className="flex gap-2 text-sm items-center"
-                >
-                  <img src="/icons/tick.svg" alt="" className="h-2.5 w-2.5" />{" "}
-                  <p>Housing, Urbanism & Environment</p>
-                </Link>
-                <Link href={""} className="flex gap-2 text-sm items-center">
-                  <img src="/icons/tick.svg" alt="" className="h-2.5 w-2.5" />{" "}
-                  <p>Ministry of Communication</p>
-                </Link>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-        <div className="border rounded-xl p-4 italic bg-blue/50 text-center mt-4 text-rwanda-blue">
-                &quot;Strengthening diplomatic relations between the Republic of Djibouti and the Republic of
-Rwanda through dedicated consular service and community support.&quot;
-              </div>
+       <div className="border-t border-border flex flex-col gap-4 mt-12 pt-8">
+      <h1 className="text-3xl text-center">{t("officialResourcesTitle")}</h1>
+      <p className="text-center">{t("officialResourcesDescription")}</p>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <Card className="border hover:shadow-lg transition-all duration-300">
+          <CardHeader className="font-bold text-xl">{t("executiveBranch")}</CardHeader>
+          <CardContent className="p-4 flex flex-col items-start justify-between h-full">
+            <Link href={"http://presidence.dj/"} className="flex gap-2 text-sm items-center">
+              <img src="/icons/tick.svg" alt="" className="h-2.5 w-2.5" />{" "}
+              <p>{t("presidencyOfDjibouti")}</p>
+            </Link>
+            <Link href={"http://primature.gouv.dj/"} className="flex gap-2 text-sm items-center">
+              <img src="/icons/tick.svg" alt="" className="h-2.5 w-2.5" />{" "}
+              <p>{t("primeMinistersOffice")}</p>
+            </Link>
+            <Link href={"http://presidence.dj/composition"} className="flex gap-2 text-sm items-center">
+              <img src="/icons/tick.svg" alt="" className="h-2.5 w-2.5" />{" "}
+              <p>{t("completeGovernmentDirectory")}</p>
+            </Link>
+          </CardContent>
+        </Card>
+
+        <Card className="border hover:shadow-lg transition-all duration-300">
+          <CardHeader className="font-bold text-xl">{t("keyMinistries")}</CardHeader>
+          <CardContent className="p-4 flex flex-col items-start justify-between h-full">
+            <Link href={"http://diplomatie.gouv.dj/"} className="flex gap-2 text-sm items-center">
+              <img src="/icons/tick.svg" alt="" className="h-2.5 w-2.5" />{" "}
+              <p>{t("foreignAffairs")}</p>
+            </Link>
+            <Link href={"http://ministere-finances.dj/"} className="flex gap-2 text-sm items-center">
+              <img src="/icons/tick.svg" alt="" className="h-2.5 w-2.5" />{" "}
+              <p>{t("economyFinance")}</p>
+            </Link>
+            <Link href={"http://justice.gouv.dj/"} className="flex gap-2 text-sm items-center">
+              <img src="/icons/tick.svg" alt="" className="h-2.5 w-2.5" />{" "}
+              <p>{t("ministryOfJustice")}</p>
+            </Link>
+          </CardContent>
+        </Card>
+
+        <Card className="border hover:shadow-lg transition-all duration-300">
+          <CardHeader className="font-bold text-xl">{t("publicServices")}</CardHeader>
+          <CardContent className="p-4 flex flex-col items-start justify-between h-full">
+            <Link href={"http://logement.gouv.dj/"} className="flex gap-2 text-sm items-center">
+              <img src="/icons/tick.svg" alt="" className="h-2.5 w-2.5" />{" "}
+              <p>{t("housingUrbanismEnvironment")}</p>
+            </Link>
+            <Link href={""} className="flex gap-2 text-sm items-center">
+              <img src="/icons/tick.svg" alt="" className="h-2.5 w-2.5" />{" "}
+              <p>{t("ministryOfCommunication")}</p>
+            </Link>
+          </CardContent>
+        </Card>
+      </div>
+
+      <div className="border rounded-xl p-4 italic z-10 bg-blue/50 text-center mt-4 text-rwanda-blue">
+        {t("diplomaticRelationsQuote")}
+      </div>
+    </div>
         {/* Bottom Section */}
         <div className="border-t border-border mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">

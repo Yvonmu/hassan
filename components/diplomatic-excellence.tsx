@@ -108,89 +108,73 @@ export default function DiplomaticExcellence() {
                 : "opacity-0"
             }`}
           >
-              <div className="grid gap-8 h-full">
+            <div className="grid gap-8 h-full">
+              <Card className="group hover:shadow-lg transition-all duration-300 hover:scale-105">
+                <CardContent>
+                  <div className="flex items-start space-x-4">
+                    <div className="grid gap-4">
+                      <h3 className="text-2xl font-bold text-foreground mb-6">
+                        {t("professionalActivity")}
+                      </h3>
+                      <p className="text-muted-foreground">
+                        {t("professionalActivityDesc")}
+                      </p>
+
+                      <div className="flex gap-2">
+                        <img src="/icons/tick.svg" alt="" />
+                        <p>{t("appointedArticle2")}</p>
+                      </div>
+                      <div className="flex gap-2">
+                        <img src="/icons/tick.svg" alt="" />
+                        <p>{t("voluntaryService")}</p>
+                      </div>
+                      <div className="flex gap-2">
+                        <img src="/icons/tick.svg" alt="" />
+                        <p>{t("emergencySupport")}</p>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+              <div className="flex flex-col justify-between">
                 <Card className="group hover:shadow-lg transition-all duration-300 hover:scale-105">
-                  <CardContent className="">
-                    <div className="flex items-start space-x-4">
-                      <div className="grid gap-4">
-                        <h3 className="text-2xl font-bold text-foreground mb-6">
-                          {t("professionalActivity")}
+                  <CardContent className="p-6">
+                    <div className="flex flex-col items-center text-center justify-center gap-4">
+                      <div className="flex items-center justify-center w-[20vh] h-[20vh] ">
+                        <img
+                          src="/hassan.webp"
+                          alt={t("consulImageAlt")}
+                          className="w-full object-cover h-full rounded-2xl"
+                        />
+                      </div>
+                      <div className="flex items-center justify-center flex-col">
+                        <h3 className="text-2xl font-bold text-foreground ">
+                          Hassan Adan Hassan
                         </h3>
+                        <Badge>{t("consulTitle")}</Badge>
+                      </div>
+                      <div className="space-y-3">
                         <p className="text-muted-foreground">
-                          Hassan Adan Hassan serves as the Honorary Consul of
-                          Djibouti in Kigali, operating under the direct
-                          authority of the Ambassador of Djibouti in Addis
-                          Ababa, Ethiopia. His mission encompasses comprehensive
-                          consular services, emergency assistance, and fostering
-                          bilateral trade and cultural exchange programs.
+                          {t("consulDescription")}
                         </p>
-                        <div className="flex gap-2">
-                          <img src="/icons/tick.svg" alt="" />{" "}
-                          <p>
-                            Appointed under Article 2 of Honorary Consul
-                            Regulations
-                          </p>
-                        </div>
-                        <div className="flex gap-2">
-                          <img src="/icons/tick.svg" alt="" />{" "}
-                          <p>
-                            Voluntary diplomatic service commitment (Article 3)
-                          </p>
-                        </div>
-                        <div className="flex gap-2">
-                          <img src="/icons/tick.svg" alt="" />{" "}
-                          <p>24/7 emergency support for Djiboutian nationals</p>
-                        </div>
                       </div>
                     </div>
                   </CardContent>
                 </Card>
-                <div className="flex flex-col justify-between">
-                  <Card className="group hover:shadow-lg transition-all duration-300 hover:scale-105">
-                    <CardContent className="p-6">
-                      <div className="flex flex-col items-center text-center justify-center gap-4">
-                        <div className="flex items-center justify-center w-[20vh] h-[20vh] ">
-                          <img
-                            src="/hassan.webp"
-                            alt=""
-                            className="w-full object-cover h-full rounded-2xl"
-                          />
-                        </div>
-                        <div className="flex items-center justify-center flex-col">
-                          <h3 className="text-2xl font-bold text-foreground ">
-                            Hassan Adan Hassan
-                          </h3>
-                          <Badge>Honorary Consul of Djibouti in Kigali</Badge>
-                        </div>
-                        <div className="space-y-3">
-                          <p className="text-muted-foreground">
-                            Committed to excellence in diplomatic service and
-                            fostering strong bilateral relations between the
-                            Republic of Djibouti and the Republic of Rwanda.
-                          </p>
-                        </div>
+                <Card className="group hover:shadow-lg transition-all duration-300 hover:scale-105 bg-yellow-200/50 text-foreground">
+                  <CardContent className="p-4">
+                    <div className="flex items-start space-x-4">
+                      <div className="bg-primary/10 p-3 rounded-lg group-hover:bg-primary/20 transition-colors duration-300">
+                        <AlertCircle className="h-6 w-6 text-primary" />
                       </div>
-                    </CardContent>
-                  </Card>
-                  <Card className="group hover:shadow-lg transition-all duration-300 hover:scale-105 bg-yellow-200/50 text-foreground">
-                    <CardContent className="p-4">
-                      <div className="flex items-start space-x-4">
-                        <div className="bg-primary/10 p-3 rounded-lg group-hover:bg-primary/20 transition-colors duration-300">
-                          <AlertCircle className="h-6 w-6 text-primary" />
-                        </div>
-                        <div>
-                          <p className="text-foreground">
-                            This consulate cannot issue visas, passports, or
-                            other immigration documents. All such matters are
-                            handled exclusively by the Embassy of Djibouti in
-                            Ethiopia.
-                          </p>
-                        </div>
+                      <div>
+                        <p className="text-foreground">{t("visaDisclaimer")}</p>
                       </div>
-                    </CardContent>
-                  </Card>
-                </div>
+                    </div>
+                  </CardContent>
+                </Card>
               </div>
+            </div>
           </div>
           <div className="grid gap-8">
             {/* Core Competencies */}
@@ -230,7 +214,7 @@ export default function DiplomaticExcellence() {
               <div className="relative">
                 <img
                   src="/dj.png"
-                  alt="Diplomatic Excellence"
+                  alt={t("diplomaticExcellence")}
                   className="w-full h-full object-cover"
                 />
                 {/* <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div> */}
@@ -247,10 +231,8 @@ export default function DiplomaticExcellence() {
                   </div>
                 </div> */}
               </div>
-              <div className="border rounded-xl p-4 italic bg-blue/50 text-rwanda-blue">
-                &quot;Excellence in diplomatic service comes from understanding
-                that every interaction builds bridges between cultures and
-                creates lasting positive impact.&quot;
+              <div className="border rounded-xl p-4 italic z-10 bg-blue/50 text-rwanda-blue">
+                {t("diplomaticQuote")}
               </div>
             </div>
             <Card className="group hover:shadow-lg transition-all duration-300 hover:scale-105">

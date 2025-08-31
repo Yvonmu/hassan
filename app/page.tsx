@@ -23,10 +23,7 @@ export default function Home() {
       <NaturalWonders />
       <StayConnected />
       <SocialFeedsSection/>
-      {/* <SocialFeeds /> */}
       <ContactSection1/>
-      {/* <ContactSection /> */}
-      {/* <OfficeLocation /> */}
       <Footer />
     </main>
   )

@@ -29,15 +29,13 @@ const JurisdictionSection = () => {
       <div className="container mx-auto space-y-4">
         <div className="text-center mb-12 animate-fade-in">
           <div className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
-            EMBASSY
+            {t("embassyLabel")}
           </div>
           <h2 className="text-3xl font-bold text-foreground mb-4">
-            Jurisdiction and Operating Hours{" "}
+            {t("jurisdictionTitle")}
           </h2>
           <p className="text-muted-foreground max-w-3xl mx-auto">
-            Connect with the Honorary Consulate for professional diplomatic
-            services, emergency assistance, or general inquiries about
-            Djibouti-Rwanda relations.
+            {t("jurisdictionDescription")}
           </p>
         </div>
 
@@ -48,32 +46,32 @@ const JurisdictionSection = () => {
               <CardContent className="p-6">
                 <div className="flex flex-col items-start space-x-4">
                   <h3 className="text-2xl font-bold text-foreground mb-6">
-                    Operational Details
+                    {t("operationalDetailsTitle")}
                   </h3>
                   <div className="space-y-3">
                     <div className="flex items-center space-x-3">
                       <div className="w-2 h-2 bg-primary rounded-full"></div>
                       <p className="text-muted-foreground">
-                        Jurisdiction: Republic of Rwanda
+                        {t("jurisdiction")}: {t("republicRwanda")}
                       </p>
                     </div>
 
                     <div className="flex items-center space-x-3">
                       <div className="w-2 h-2 bg-primary rounded-full"></div>
                       <p className="text-muted-foreground">
-                        Supervising Authority: Embassy of Djibouti in Ethiopia
+                        {t("supervisingAuthority")}: {t("embassyDjiboutiEthiopia")}
                       </p>
                     </div>
                     <div className="flex items-center space-x-3">
                       <div className="w-2 h-2 bg-primary rounded-full"></div>
                       <p className="text-muted-foreground">
-                        Operating Hours: Monday-Friday, 10:00-16:00{" "}
+                        {t("operatingHours")}: {t("mondayToFriday")} 10:00-16:00
                       </p>
                     </div>
                     <div className="flex items-center space-x-3">
                       <div className="w-2 h-2 bg-primary rounded-full"></div>
                       <p className="text-muted-foreground">
-                        Closed on public holidays{" "}
+                        {t("closedPublicHolidays")}
                       </p>
                     </div>
                   </div>
@@ -82,7 +80,7 @@ const JurisdictionSection = () => {
             </Card>
 
             <div className="space-y-3">
-              <h3 className="font-semibold text-foreground">Quick Links</h3>
+              <h3 className="font-semibold text-foreground">{t("quickLinks")}</h3>
               <div className="space-y-2">
                 <Button
                   variant="outline"
@@ -105,7 +103,7 @@ const JurisdictionSection = () => {
                   }
                 >
                   <MapPin className="w-4 h-4 mr-2" />
-                  View on Google Maps Embassy of Djibouti
+                  {t("viewOnGoogleMapsEmbassyDjibouti")}
                 </Button>
               </div>
             </div>
@@ -121,38 +119,36 @@ const JurisdictionSection = () => {
                   </div>
                   <div>
                     <p className="text-foreground">
-                      For visas, passports, and immigration services,{" "}
+                      {t("visaPassportInfoStart")}{" "}
                       <Link
                         href={"https://www.evisa.gouv.dj/applicant-api/#/"}
                         className="text-primary underline hover:text-primary/90 hover:no-underline hover:cursor-pointer"
                       >
-                        Apply for Djibouti eVisa Online
+                        {t("applyDjiboutiEVisaOnline")}
                       </Link>{" "}
-                      or contact the Embassy of Djibouti in Ethiopia.
+                      {t("visaPassportInfoEnd")}
                     </p>
                   </div>
                 </div>
               </CardContent>
             </Card>
-             <Card className="overflow-hidden border-2 relative h-[30vh]">
-  {/* Google Map */}
-  <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.76460971822!2d38.7777185!3d8.993794700000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b84559dd44d43%3A0xd3516fb9342d63ea!2sEmbassy%20of%20Djibouti!5e0!3m2!1sen!2srw!4v1756608283729!5m2!1sen!2srw"
-    width="100%"
-    height="100%"
-    style={{ border: 0 }}
-    allowFullScreen
-    loading="lazy"
-    referrerPolicy="no-referrer-when-downgrade"
-    className="rounded-lg"
-  ></iframe>
-</Card>
-
+            <Card className="overflow-hidden border-2 relative h-[30vh]">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.76460971822!2d38.7777185!3d8.993794700000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b84559dd44d43%3A0xd3516fb9342d63ea!2sEmbassy%20of%20Djibouti!5e0!3m2!1sen!2srw!4v1756608283729!5m2!1sen!2srw"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="rounded-lg"
+              ></iframe>
+            </Card>
           </div>
         </div>
-        
       </div>
     </section>
   );
 };
+
 export default JurisdictionSection;

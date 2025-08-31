@@ -40,106 +40,90 @@ export default function NaturalWonders() {
     return () => observer.disconnect();
   }, []);
 
-  const wonders = [
-    // {
-    //   title: t("lakeAssalTitle"),
-    //   location: t("lakeAssalLocation"),
-    //   description: t("lakeAssalDescription"),
-    //   image: "/images/assal.png",
-    //   rating: 4.8,
-    //   category: t("naturalWonder"),
-    // },
-   
-    {
-      title: `Moucha & Maskali Islands`,
-      location: t("ardoukobaVolcanoLocation"),
-      description: `The islands of Moucha and Maskali are located in the Gulf of Tadjoura in Djibouti. The two islands are a group of rocky coral reefs that date back to the Upper Pleistocene (140,000 to 100,000 BC).
-These small desert islands are a lush oasis filled with mangroves, where the landscapes of underwater trees as well as multi-colored algae and coral gardens are natural scenes of great beauty. The islands' fish-filled waters are home to exceptional marine fauna such as the Red-billed tropicbird, Western reef heron, and the Eurasian spoonbill, as well as whale shark, Round ribbontail ray and various turtles.
-The islands of Moucha and Maskali and Mcale are distinguished by their sandy beaches and exceptional landscapes.`,
-      image: "/images/Moucha_Island.jpg",
-      rating: 4.5,
-      category: t("volcanicSite"),
-      link: `https://archiqoo.com/unesco/unesco_natural_sub_lists.php?uw_country=djibouti&subsite=moucha_maskali_islands`,
-    },
+const wonders = [
+  {
+    title: t("wonders.mouchaMaskaliTitle"),
+    location: t("wonders.mouchaMaskaliLocation"),
+    description: t("wonders.mouchaMaskaliDescription"),
+    image: "/images/Moucha_Island.jpg",
+    rating: 4.5,
+    category: t("wonders.volcanicSite"),
+    link: "https://archiqoo.com/unesco/unesco_natural_sub_lists.php?uw_country=djibouti&subsite=moucha_maskali_islands",
+  },
+  {
+    title: t("wonders.lakeAssalTitle"),
+    location: t("wonders.lakeAssalLocation"),
+    description: t("wonders.lakeAssalDescription"),
+    image: "/images/assal_5672-e1552151713486.jpg",
+    rating: 4.8,
+    category: t("wonders.naturalWonder"),
+    link: "https://guide.visitdjibouti.dj/le-lac-assal-sur-les-terres-apaisees/",
+  },
+  {
+    title: t("wonders.mixingCultureTitle"),
+    location: t("wonders.mixingCultureLocation"),
+    description: t("wonders.mixingCultureDescription"),
+    image: "/images/culture-9-e1551264296617.jpg",
+    rating: 4.9,
+    category: t("wonders.geologicalSite"),
+    link: "https://guide.visitdjibouti.dj/un-pays-ou-le-brassage-est-le-barycentre/",
+  },
+  {
+    title: t("wonders.lakeAbbeTitle"),
+    location: t("wonders.lakeAbbeLocation"),
+    description: t("wonders.lakeAbbeDescription"),
+    image: "/images/lacabbe-16.jpg",
+    rating: 4.7,
+    category: t("wonders.nationalPark"),
+    link: "https://guide.visitdjibouti.dj/le-lac-abbe-des-paysages-lunaires/",
+  },
+  {
+    title: t("wonders.archaeologicalDiscoveriesTitle"),
+    location: t("wonders.archaeologicalDiscoveriesLocation"),
+    description: t("wonders.archaeologicalDiscoveriesDescription"),
+    image: "/images/balho.jpg",
+    rating: 4.6,
+    category: t("wonders.urbanLandmark"),
+    link: "https://guide.visitdjibouti.dj/les-decouvertes-archeologiques/",
+  },
+  {
+    title: t("wonders.obockTitle"),
+    location: t("wonders.obockLocation"),
+    description: t("wonders.obockDescription"),
+    image: "/images/obock.jpg",
+    rating: 4.9,
+    category: t("wonders.geologicalSite"),
+    link: "https://guide.visitdjibouti.dj/obock/",
+  },
+  {
+    title: t("wonders.tadjouraTitle"),
+    location: t("wonders.tadjouraLocation"),
+    description: t("wonders.tadjouraDescription"),
+    image: "/images/tadjoura.png",
+    rating: 4.7,
+    category: t("wonders.nationalPark"),
+    link: "https://www.britannica.com/place/Djibouti",
+  },
+  {
+    title: t("wonders.ghoubbetTitle"),
+    location: t("wonders.ghoubbetLocation"),
+    description: t("wonders.ghoubbetDescription"),
+    image: "/images/gouk.png",
+    rating: 4.6,
+    category: t("wonders.urbanLandmark"),
+    link: "https://en.wikipedia.org/wiki/Ghoubbet-el-Kharab",
+  },
+  {
+    title: t("wonders.dayForestTitle"),
+    location: t("wonders.dayForestLocation"),
+    description: t("wonders.dayForestDescription"),
+    image: "/images/Day Forest National Park.png",
+    rating: 4.8,
+    category: t("wonders.marineParadise"),
+    link: "https://en.wikipedia.org/wiki/Day_Forest_National_Park",
+  },
+];
 
-    {
-      title: `Lake Assal, on the peaceful lands`,
-      location: t("lakeAssalLocation"),
-      description: `Lake Assal and its Intangible Heritage From Djibouti City, it takes an hour and a half to reach Lake Assal, a site that attracts geologists and volcanologists from all over the world. Lake Assal is located less than 157m below sea level, making it the highest point…`,
-      image: "/images/assal_5672-e1552151713486.jpg",
-      rating: 4.8,
-      category: t("naturalWonder"),
-      link: "https://guide.visitdjibouti.dj/le-lac-assal-sur-les-terres-apaisees/",
-    },
-    {
-      title: `A country where MIXING is the BARYCENTRE`,
-      location: `A country where MIXING is the BARYCENTRE Djiboutian culture draws its source from the ancestral nomadic origins of the various ethnic communities that compose it. This culture presents a wide range of folkloric repertoire including songs, poetry and varied dances where epic and lyrical styles embrace and embrace each other. The…`,
-      description: t("lacAbbeDescription"),
-      image: "/images/culture-9-e1551264296617.jpg",
-      rating: 4.9,
-      category: t("geologicalSite"),
-      link: `https://guide.visitdjibouti.dj/un-pays-ou-le-brassage-est-le-barycentre/`,
-    },
-    {
-      title: `Lake Abbé, lunar landscapes`,
-      location: `Lake Abbot, lunar landscapes Don't miss a visit to Lake Abbot and its magical landscapes. When the sun sets behind the limestone chimneys, the landscape takes on the appearance of a fantasy world. These needle-shaped chimneys, from a few meters to more than fifty meters high,…`,
-      description: t("dayForestDescription"),
-      image: "/images/lacabbe-16.jpg",
-      rating: 4.7,
-      category: t("nationalPark"),
-      link: `https://guide.visitdjibouti.dj/le-lac-abbe-des-paysages-lunaires/`,
-    },
-    {
-      title: `Archaeological Discoveries`,
-      location: `Balho in Prehistory For lovers of discovery with the soul of an explorer, you must continue your pilgrimage further to the prehistoric site of Balho, 80 km north of Lake Assal. Some sites are exceptionally rich and contain prehistoric rock art. These remains, still little explored by…`,
-      description: t("djiboutiHarborDescription"),
-      image: "/images/balho.jpg",
-      rating: 4.6,
-      category: t("urbanLandmark"),
-      link: `https://guide.visitdjibouti.dj/les-decouvertes-archeologiques/`,
-    },
-     {
-      title: `Obock`,
-      location: t("lacAbbeLocation"),
-      description: `Nearby Obock, the first French settlement in the region, offers a glimpse into colonial history with its old port and traditional architecture, making both towns rich cultural heritage sites along the Red Sea coastline.`,
-      image: "/images/obock.jpg",
-      rating: 4.9,
-      category: t("geologicalSite"),
-      link:"https://guide.visitdjibouti.dj/obock/"
-    },
-    {
-      title: `Tadjoura`,
-      location: t("dayForestLocation"),
-      description: `Explore Tadjoura, one of the oldest towns in Djibouti, known for its whitewashed houses and historic mosques, reflecting centuries of trade and culture.`,
-      image: "/images/tadjoura.png",
-      rating: 4.7,
-      category: t("nationalPark"),
-      link:"https://www.britannica.com/place/Djibouti"
-    },
-    {
-      title: `Ghoubbet al-Kharab`,
-      location: t("djiboutiHarborLocation"),
-      description: `Known as the "Devil's Cauldron," this dramatic bay features steep volcanic cliffs, crystal-clear waters, and exceptional diving opportunities with diverse marine life, including whale sharks.`,
-      image: "/images/gouk.png",
-      rating: 4.6,
-      category: t("urbanLandmark"),
-      link:`https://en.wikipedia.org/wiki/Ghoubbet-el-Kharab`
-    },
-    {
-      title: `Day Forest National Park`,
-      location: t("mouchaIslandLocation"),
-      description: `Djibouti's only national park 
-features rare juniper forests and
-unique highland ecosystems,
-offering hiking trails and wildlife
-observation opportunities in cooler
-mountain climates.`,
-      image: "/images/Day Forest National Park.png",
-      rating: 4.8,
-      category: t("marineParadise"),
-      link:`https://en.wikipedia.org/wiki/Day_Forest_National_Park`
-    },
-  ];
 
   const handleExploreMore = (wonder: string) => {
     // Simulate explore more functionality
@@ -315,17 +299,24 @@ mountain climates.`,
           </div>
         )}
       </div>
-      <div className="border rounded-xl text-center p-4 italic bg-blue/50 text-black">
-        &quot;Visit{" "}
-        <Link
-          href={"https://guide.visitdjibouti.dj/"}
-          className="underline font-bold text-primary cursor-pointer"
-        >
-          visitdjibouti.dj
-        </Link>{" "}
-        for comprehensive travel information, tour packages, and booking
-        assistance for these remarkable destinations..&quot;
-      </div>
+       <div className="border rounded-xl text-center p-4 italic z-10 bg-blue/50 text-black">
+      {t("visitDjiboutiInfo").split("{link}").map((part, idx, arr) => (
+        <span key={idx}>
+          {part}
+          {idx < arr.length - 1 && (
+            <Link
+              href="https://guide.visitdjibouti.dj/"
+              className="underline font-bold text-primary cursor-pointer"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              visitdjibouti.dj
+            </Link>
+          )}
+        </span>
+      ))}
+    </div>
+
     </section>
   );
 }

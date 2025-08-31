@@ -6,7 +6,7 @@ export const Header = () => {
       <div className="max-w-4xl mx-auto">
         <Badge 
           variant="secondary" 
-          className="mb-6 bg-primary-dark text-primary-foreground px-4 py-2 text-sm font-medium"
+          className="mb-6 bg-primary text-primary-foreground px-4 py-2 text-sm font-medium"
         >
           Professional Services
         </Badge>

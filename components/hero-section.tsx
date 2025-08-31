@@ -4,7 +4,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Phone,  BookCheck } from "lucide-react";
+import { Phone, BookCheck } from "lucide-react";
 import { useTranslation } from "@/hooks/use-translation";
 import Image from "next/image";
 
@@ -15,8 +15,6 @@ export default function HeroSection() {
   useEffect(() => {
     setIsVisible(true);
   }, []);
-
-
 
   return (
     <section
@@ -51,53 +49,52 @@ export default function HeroSection() {
             </div>
 
             <div className="flex flex-wrap gap-3">
-  <Button
-    onClick={() => {
-      const element = document.getElementById("appointment");
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    }}
-    className="bg-foreground hover:bg-djibouti-blue/90 text-white px-8 py-3 text-lg font-medium transition-all duration-300 hover:scale-105 hover-lift"
-  >
-    <BookCheck className="h-5 w-5 mr-2" />
-    Book Appointment
-  </Button>
+              <Button
+                onClick={() => {
+                  const element = document.getElementById("appointment");
+                  if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+                className="bg-foreground hover:bg-djibouti-blue/90 text-white px-8 py-3 text-lg font-medium transition-all duration-300 hover:scale-105 hover-lift"
+              >
+                <BookCheck className="h-5 w-5 mr-2" />
+                {t("bookAppointment")}
+              </Button>
 
-  <Button
-    variant="outline"
-    onClick={() => {
-      const element = document.getElementById("consular");
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    }}
-    className="font-medium transition-all duration-300 hover:scale-105 hover:text-rwanda-green"
-  >
-    <Phone className="h-5 w-5 mr-2" />
-    {t("consularServices")}
-  </Button>
-</div>
-
+              <Button
+                variant="outline"
+                onClick={() => {
+                  const element = document.getElementById("consular");
+                  if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+                className="font-medium transition-all duration-300 hover:scale-105 hover:text-rwanda-green"
+              >
+                <Phone className="h-5 w-5 mr-2" />
+                {t("consularServices")}
+              </Button>
+            </div>
 
             <div className="flex flex-col sm:flex-row justify-between gap-4">
               <div className="flex flex-col">
                 <h1 className="text-3xl lg:text-4xl font-bold text-foreground leading-tight drop-shadow-lg">
                   {t("officialTitle")}
                 </h1>
-                <p>Diplomatic Status</p>
+                <p>{t("diplomaticStatus")}</p>
               </div>
               <div className="flex flex-col">
                 <h1 className="text-3xl lg:text-4xl font-bold text-[#E8B364] leading-tight drop-shadow-lg">
                   Kigali
                 </h1>
-                <p>Consulate Location</p>
+                <p>{t("consulateLocation")}</p>
               </div>
               <div className="flex flex-col">
                 <h1 className="text-3xl lg:text-4xl font-bold text-foreground leading-tight drop-shadow-lg">
                   {t("year")}
                 </h1>
-                <p>Appointed Since</p>
+                <p>{t("appointedSince")}</p>
               </div>
             </div>
           </div>
@@ -137,9 +134,9 @@ export default function HeroSection() {
                 {/* Centered overlay partially on image */}
                 <div className="absolute -top-20 left-1/2 flex flex-col gap-2 items-center -translate-x-1/2 bg-white/90 backdrop-blur-3xl w-3/4 text-center p-4 rounded-2xl text-">
                   <h1 className="text-2xl font-bold">Hassan Adan Hassan</h1>
-                  <Badge>Honorry Consul</Badge>
-                  <h3>Republic of Djibouti in Rwanda</h3>
-                  <p>Kigali, Rwanda</p>
+                   <Badge>{t("consulTitle")}</Badge>
+  <h3>{t("consulateFull")}</h3>
+  <p>{t("location")}</p>
                   <div className="flex justify-center gap-2">
                     <div className="w-12 h-8 rounded-sm overflow-hidden shadow-sm relative">
                       <Image
