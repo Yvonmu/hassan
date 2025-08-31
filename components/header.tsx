@@ -31,7 +31,7 @@ export default function Header() {
   return (
     <>
       <div className="bg-primary text-primary-foreground py-2 px-4">
-        <div className="container mx-auto flex items-center justify-between text-sm">
+        <div className="container mx-auto hidden md:flex items-center justify-between text-sm">
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-2">
               <Phone className="h-4 w-4 animate-bounce hover:animate-pulse" />

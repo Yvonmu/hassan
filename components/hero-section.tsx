@@ -19,7 +19,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden"
+      className="relative md:min-h-screen h-full flex items-center justify-center pt-16 overflow-hidden"
     >
       <div className="absolute inset-0 w-full h-full">
         <img
@@ -101,7 +101,7 @@ export default function HeroSection() {
 
           {/* Right Content - Profile Image */}
           <div
-            className={`min-h-[50vh] w-auto ${
+            className={`h-full min-h-[50vh] z-10 w-auto ${
               isVisible
                 ? "animate-slide-in-right animate-delay-200"
                 : "opacity-0"
@@ -111,7 +111,7 @@ export default function HeroSection() {
             {/* <div className="absolute inset-0 bg-gradient-to-r from-rwanda-yellow/30 to-djibouti-green/30 rounded-2xl transform rotate-3 animate-float"></div> */}
 
             {/* Image Card */}
-            <div className=" h-full w-3/4 bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-2xl hover-lift">
+            <div className=" h-full md:w-3/4 w-full bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-2xl hover-lift">
               <div className="relative p-2">
                 {/* Image */}
                 <Image
