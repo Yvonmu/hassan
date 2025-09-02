@@ -18,40 +18,44 @@ interface ServiceModalProps {
   serviceName: string;
 }
 
-export const ServiceModal = ({ isOpen, onClose, serviceName }: ServiceModalProps) => {
+export const ServiceModal = ({
+  isOpen,
+  onClose,
+  serviceName,
+}: ServiceModalProps) => {
   const { t } = useTranslation();
 
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    message: ""
+    message: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     alert({
       title: t("serviceRequestSubmitted"),
-description: `${t("serviceRequestDescription")} ${serviceName}`,
+      description: `${t("serviceRequestDescription")} ${serviceName}`,
     });
     setFormData({ name: "", email: "", phone: "", message: "" });
     onClose();
   };
 
   const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-<DialogTitle>{t("requestService")}: {serviceName}</DialogTitle>
-          <DialogDescription>
-            {t("serviceFormDescription")}
-          </DialogDescription>
+          <DialogTitle>
+            {t("requestService")}: {serviceName}
+          </DialogTitle>
+          <DialogDescription>{t("fillFormPrompt")}</DialogDescription>
         </DialogHeader>
-        
+
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
             <Label htmlFor="name">{t("fullName")}</Label>
@@ -62,7 +66,7 @@ description: `${t("serviceRequestDescription")} ${serviceName}`,
               required
             />
           </div>
-          
+
           <div className="space-y-2">
             <Label htmlFor="email">{t("emailAddress")}</Label>
             <Input
@@ -73,7 +77,7 @@ description: `${t("serviceRequestDescription")} ${serviceName}`,
               required
             />
           </div>
-          
+
           <div className="space-y-2">
             <Label htmlFor="phone">{t("phoneNumber")}</Label>
             <Input
@@ -84,7 +88,7 @@ description: `${t("serviceRequestDescription")} ${serviceName}`,
               required
             />
           </div>
-          
+
           <div className="space-y-2">
             <Label htmlFor="message">{t("message")}</Label>
             <Textarea
@@ -95,7 +99,7 @@ description: `${t("serviceRequestDescription")} ${serviceName}`,
               required
             />
           </div>
-          
+
           <div className="flex justify-end gap-2 pt-4">
             <Button type="button" variant="outline" onClick={onClose}>
               {t("cancel")}
