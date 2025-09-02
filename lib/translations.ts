@@ -809,7 +809,7 @@ export const translations = {
 
     // Header Contact Info
     phone: "+250 (0) 780 685 486",
-    email: "mailto:info@consuldjibouti.com",
+    email: "info@consuldjibouti.com",
 
     // Hero Section
     heroName: "Hassan Adan Hassan",
