@@ -38,6 +38,27 @@ const JurisdictionSection = () => {
             {t("jurisdictionDescription")}
           </p>
         </div>
+         <Card className="group hover:shadow-lg transition-all duration-300 hover:scale-105 bg-yellow-200/50 text-foreground">
+              <CardContent className="">
+                <div className="flex items-center space-x-4">
+                  <div className="bg-primary/10 p-3 rounded-lg group-hover:bg-primary/20 transition-colors duration-300">
+                    <Info className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-foreground">
+                      {t("visaPassportInfoStart")}{" "}
+                      <Link
+                        href={"https://www.evisa.gouv.dj/applicant-api/#/"}
+                        className="text-primary underline hover:text-primary/90 hover:no-underline hover:cursor-pointer"
+                      >
+                        {t("applyDjiboutiEVisaOnline")}
+                      </Link>{" "}
+                      {t("visaPassportInfoEnd")}
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Info */}
@@ -79,6 +100,24 @@ const JurisdictionSection = () => {
               </CardContent>
             </Card>
 
+            
+          </div>
+
+          {/* Contact / Appointment Form */}
+          <div className="animate-fade-in grid gap-4">
+           
+            <Card className="overflow-hidden border-2 relative h-[30vh]">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.76460971822!2d38.7777185!3d8.993794700000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b84559dd44d43%3A0xd3516fb9342d63ea!2sEmbassy%20of%20Djibouti!5e0!3m2!1sen!2srw!4v1756608283729!5m2!1sen!2srw"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="rounded-lg"
+              ></iframe>
+            </Card>
             <div className="space-y-3">
               <h3 className="font-semibold text-foreground">{t("quickLinks")}</h3>
               <div className="space-y-2">
@@ -107,43 +146,6 @@ const JurisdictionSection = () => {
                 </Button>
               </div>
             </div>
-          </div>
-
-          {/* Contact / Appointment Form */}
-          <div className="animate-fade-in grid gap-4">
-            <Card className="group hover:shadow-lg transition-all duration-300 hover:scale-105 bg-yellow-200/50 text-foreground">
-              <CardContent className="">
-                <div className="flex items-start space-x-4">
-                  <div className="bg-primary/10 p-3 rounded-lg group-hover:bg-primary/20 transition-colors duration-300">
-                    <Info className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-foreground">
-                      {t("visaPassportInfoStart")}{" "}
-                      <Link
-                        href={"https://www.evisa.gouv.dj/applicant-api/#/"}
-                        className="text-primary underline hover:text-primary/90 hover:no-underline hover:cursor-pointer"
-                      >
-                        {t("applyDjiboutiEVisaOnline")}
-                      </Link>{" "}
-                      {t("visaPassportInfoEnd")}
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-            <Card className="overflow-hidden border-2 relative h-[30vh]">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.76460971822!2d38.7777185!3d8.993794700000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b84559dd44d43%3A0xd3516fb9342d63ea!2sEmbassy%20of%20Djibouti!5e0!3m2!1sen!2srw!4v1756608283729!5m2!1sen!2srw"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="rounded-lg"
-              ></iframe>
-            </Card>
           </div>
         </div>
       </div>

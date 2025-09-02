@@ -137,30 +137,7 @@ export default function DiplomaticExcellence() {
                 </CardContent>
               </Card>
               <div className="flex flex-col justify-between">
-                <Card className="group hover:shadow-lg transition-all duration-300 hover:scale-105">
-                  <CardContent className="p-6">
-                    <div className="flex flex-col items-center text-center justify-center gap-4">
-                      <div className="flex items-center justify-center w-[20vh] h-[20vh] ">
-                        <img
-                          src="/hassan.webp"
-                          alt={t("consulImageAlt")}
-                          className="w-full object-cover h-full rounded-2xl"
-                        />
-                      </div>
-                      <div className="flex items-center justify-center flex-col">
-                        <h3 className="text-2xl font-bold text-foreground ">
-                          Hassan Adan Hassan
-                        </h3>
-                        <Badge>{t("consulTitle")}</Badge>
-                      </div>
-                      <div className="space-y-3">
-                        <p className="text-muted-foreground">
-                          {t("consulDescription")}
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+               
                 <Card className="group hover:shadow-lg transition-all duration-300 hover:scale-105 bg-yellow-200/50 text-foreground">
                   <CardContent className="p-4">
                     <div className="flex items-start space-x-4">
@@ -177,64 +154,31 @@ export default function DiplomaticExcellence() {
             </div>
           </div>
           <div className="grid gap-8">
-            {/* Core Competencies */}
-            <div
-              className={`space-y-8 p-6 shadow-lg rounded-lg group hover:shadow-lg transition-all duration-300 hover:scale-105 ${
-                isVisible
-                  ? "animate-slide-in-right animate-delay-300"
-                  : "opacity-0"
-              }`}
-            >
-              <div>
-                <h3 className="text-2xl font-bold text-foreground mb-6">
-                  {t("coreCompetencies")}
-                </h3>
-                <div className="space-y-6">
-                  {competencies.map((competency, index) => (
-                    <div key={index} className="space-y-2">
-                      <div className="flex justify-between items-center">
-                        <span className="font-medium text-foreground">
-                          {competency.name}
-                        </span>
-                        <span className="text-sm text-muted-foreground">
-                          {competency.value}%
-                        </span>
+             <Card className="group hover:shadow-lg transition-all duration-300 hover:scale-105">
+                  <CardContent className="p-6">
+                    <div className="flex flex-col items-center text-center justify-center gap-4">
+                      {/* <div className="flex items-center justify-center w-[20vh] h-[20vh] ">
+                        <img
+                          src="/hassan.webp"
+                          alt={t("consulImageAlt")}
+                          className="w-full object-cover h-full rounded-2xl"
+                        />
+                      </div> */}
+                      <div className="flex items-center justify-center flex-col">
+                        <h3 className="text-2xl font-bold text-foreground ">
+                          Hassan Adan Hassan
+                        </h3>
+                        <Badge>{t("consulTitle")}</Badge>
                       </div>
-                      <Progress
-                        value={isVisible ? competency.value : 0}
-                        className="h-2 transition-all duration-1000 ease-out"
-                        style={{ transitionDelay: `${index * 200}ms` }}
-                      />
+                      <div className="space-y-3">
+                        <p className="text-muted-foreground">
+                          {t("consulDescription")}
+                        </p>
+                      </div>
                     </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Profile Image */}
-              <div className="relative">
-                <img
-                  src="/dj.png"
-                  alt={t("diplomaticExcellence")}
-                  className="w-full h-full object-cover"
-                />
-                {/* <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div> */}
-                {/* <div className="absolute bottom-4 left-4 right-4">
-                  <div className="flex flex-wrap gap-2">
-                    <Badge className="bg-primary text-primary-foreground">
-                      <Languages className="h-3 w-3 mr-1" />
-                      Multilingual
-                    </Badge>
-                    <Badge className="bg-secondary text-secondary-foreground">
-                      <Handshake className="h-3 w-3 mr-1" />
-                      Expert Negotiator
-                    </Badge>
-                  </div>
-                </div> */}
-              </div>
-              <div className="border rounded-xl p-4 italic z-10 bg-blue/50 text-rwanda-blue">
-                {t("diplomaticQuote")}
-              </div>
-            </div>
+                  </CardContent>
+                </Card>
+            {/* Core Competencies */}
             <Card className="group hover:shadow-lg transition-all duration-300 hover:scale-105">
               <CardContent className="p-6">
                 <div className="flex flex-col items-start space-x-4">

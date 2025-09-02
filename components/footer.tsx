@@ -226,7 +226,7 @@ export default function Footer() {
               <img src="/icons/tick.svg" alt="" className="h-2.5 w-2.5" />{" "}
               <p>{t("housingUrbanismEnvironment")}</p>
             </Link>
-            <Link href={""} className="flex gap-2 text-sm items-center">
+            <Link href={"https://web.facebook.com/p/Minist%C3%A8re-de-la-Communication-Charg%C3%A9-des-Postes-et-des-T%C3%A9l%C3%A9communications-100069088184641/?_rdc=1&_rdr#"} className="flex gap-2 text-sm items-center">
               <img src="/icons/tick.svg" alt="" className="h-2.5 w-2.5" />{" "}
               <p>{t("ministryOfCommunication")}</p>
             </Link>

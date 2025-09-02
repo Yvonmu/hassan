@@ -76,8 +76,8 @@ export default function ContactSection() {
     {
       icon: Mail,
       title: t("email"),
-      details: ["hassan@diplomatic.dj", "info@consulate.dj"],
-      action: () => window.open("mailto:hassan@diplomatic.dj", "_self"),
+      details: ["mailto:info@consuldjibouti.com", "info@consulate.dj"],
+      action: () => window.open("mailto:mailto:info@consuldjibouti.com", "_self"),
     },
     {
       icon: MapPin,

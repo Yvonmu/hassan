@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Twitter, Building2 } from "lucide-react";
 import { useTranslation } from "@/hooks/use-translation";
+import Link from "next/link";
 
 export const SocialFeedsSection = () => {
   const { t } = useTranslation();
@@ -63,9 +64,9 @@ export const SocialFeedsSection = () => {
               <div className="space-y-4">
                 <div className="flex justify-between border rounded-full p-4 items-center">
                   <span className="text-sm text-muted-foreground">{t("officialLabel")}</span>
-                  <Button size="sm" variant="outline" className="hover:bg-green-50 dark:hover:bg-green-900/20">
+                  <Link href={"https://web.facebook.com/PAGEOFFICIELLEIOG/?_rdc=1&_rdr#"} className="hover:bg-green-50 border-2 rounded-2xl border-primary bg-white p-1 px-4 dark:hover:bg-green-900/20">
                     {t("followButton")}
-                  </Button>
+                  </Link>
                 </div>
                 <div className="h-24 bg-muted/50 rounded-lg flex items-center justify-center">
                   <p className="text-sm text-muted-foreground">{t("governmentUpdates")}</p>

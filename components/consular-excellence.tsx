@@ -97,7 +97,7 @@ export default function ConsularExcellence() {
 
             <ServiceCard
               title={t("documentServices")}
-              priority={t("highPriority") as "High Priority"}
+              priority={t("mediumPriority") as "Medium Priority"}
               description={t("documentDescription")}
               features={[
                 t("authentication"),
@@ -106,7 +106,7 @@ export default function ConsularExcellence() {
                 t("fastProcessing"),
               ]}
               icon={<FileText className="w-6 h-6 text-white" />}
-              variant="high"
+              variant="medium"
               onRequestService={() => handleServiceModal(t("documentServices"))}
             />
 

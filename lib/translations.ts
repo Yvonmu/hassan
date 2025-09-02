@@ -16,9 +16,9 @@ export const translations = {
     ],
     contactTitle: "Contact",
     contactDetails: [
-      "Phone: +253 77 123 456",
-      "Fax: +253 21 456 789",
-      "Email: hassan@diplomatic.dj",
+      "Phone: +250 (0) 780 685 486",
+      "Fax: +250 (0) 780 685 486",
+      "Email: mailto:info@consuldjibouti.com",
     ],
     getDirections: "Get Directions",
     callOffice: "Call Office",
@@ -71,8 +71,8 @@ export const translations = {
     gallery: "Gallery",
 
     // Header Contact Info
-    phone: "+253 77 123 456",
-    email: "hassan@diplomatic.dj",
+    phone: "+250 (0) 780 685 486",
+    email: "info@consuldjibouti.com",
 
     // Hero Section
     heroName: "Hassan Adan Hassan",
@@ -751,9 +751,9 @@ export const translations = {
     ],
     contactTitle: "Contact",
     contactDetails: [
-      "Téléphone: +253 77 123 456",
-      "Fax: +253 21 456 789",
-      "Email: hassan@diplomatic.dj",
+      "Téléphone: +250 (0) 780 685 486",
+      "Fax: +250 (0) 780 685 486",
+      "Email: mailto:info@consuldjibouti.com",
     ],
     getDirections: "Itinéraire",
     callOffice: "Appeler le bureau",
@@ -808,8 +808,8 @@ export const translations = {
     gallery: "Galerie",
 
     // Header Contact Info
-    phone: "+253 77 123 456",
-    email: "hassan@diplomatic.dj",
+    phone: "+250 (0) 780 685 486",
+    email: "mailto:info@consuldjibouti.com",
 
     // Hero Section
     heroName: "Hassan Adan Hassan",
