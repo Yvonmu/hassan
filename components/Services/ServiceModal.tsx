@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+"use client";
+
 import {
   Dialog,
   DialogContent,
@@ -11,6 +14,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import { useTranslation } from "@/hooks/use-translation";
+import { toast } from "sonner";
+import { sendServiceRequestAction } from "@/actions/sendServiceRequestAction";
 
 interface ServiceModalProps {
   isOpen: boolean;
@@ -32,14 +37,25 @@ export const ServiceModal = ({
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert({
-      title: t("serviceRequestSubmitted"),
-      description: `${t("serviceRequestDescription")} ${serviceName}`,
-    });
-    setFormData({ name: "", email: "", phone: "", message: "" });
-    onClose();
+
+    try {
+      await sendServiceRequestAction({ ...formData, serviceName });
+
+      toast.success(`${t("serviceRequestDescription")} ${serviceName}`, {
+        description: t("serviceRequestSubmitted"),
+      });
+
+      setFormData({ name: "", email: "", phone: "", message: "" });
+      onClose();
+    } catch (error: any) {
+      console.error(error);
+
+      toast.error("Failed to send service request", {
+        description: error?.message || "Please try again later.",
+      });
+    }
   };
 
   const handleInputChange = (field: string, value: string) => {

@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { cookies } from "next/headers";
 import { TranslationProvider } from "@/hooks/use-translation";
+import { Toaster } from "sonner";
 
 const geistSans = Geist({
   subsets: ["latin"],
@@ -42,6 +43,7 @@ export default async function RootLayout({
       <body suppressHydrationWarning>
         <TranslationProvider initialLanguage={initialLang}>
           {children}
+          <Toaster richColors position="top-right" />
         </TranslationProvider>
       </body>
     </html>

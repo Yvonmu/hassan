@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -8,6 +9,8 @@ import { MapPin, Phone, Mail, Clock, ExternalLink, Send } from "lucide-react";
 import { useState } from "react";
 import { useTranslation } from "@/hooks/use-translation";
 import Link from "next/link";
+import { toast } from "sonner";
+import { sendContactFormAction } from "@/actions/sendContactFormAction";
 
 const ContactSection = () => {
   const { t } = useTranslation();
@@ -25,21 +28,32 @@ const ContactSection = () => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert({
-      title: t("contactF.messageSentTitle"),
-      description: t("contactF.messageSentDesc"),
-    });
-    setFormData({
-      fullName: "",
-      emailAddress: "",
-      phoneNumber: "",
-      subject: "",
-      message: "",
-      citizenship: "",
-      appointmentDate: "",
-    });
+
+    try {
+      await sendContactFormAction(formData);
+
+      toast.success(t("contactF.messageSentTitle"), {
+        description: t("contactF.messageSentDesc"),
+      });
+
+      setFormData({
+        fullName: "",
+        emailAddress: "",
+        phoneNumber: "",
+        subject: "",
+        message: "",
+        citizenship: "",
+        appointmentDate: "",
+      });
+    } catch (error: any) {
+      console.error(error);
+
+      toast.error("Failed to send message", {
+        description: error?.message || "Please try again later.",
+      });
+    }
   };
 
   return (
