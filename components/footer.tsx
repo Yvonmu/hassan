@@ -43,8 +43,8 @@ export default function Footer() {
   ];
 
   const services = [
-    t("visaProcessing"),
-    t("passportServices"),
+    // t("visaProcessing"),
+    // t("passportServices"),
     t("citizenSupport"),
     t("emergencyAssistance"),
     t("businessFacilitation"),

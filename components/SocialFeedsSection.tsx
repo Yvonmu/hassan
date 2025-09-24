@@ -1,6 +1,5 @@
-"use client"
+"use client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Twitter, Building2 } from "lucide-react";
 import { useTranslation } from "@/hooks/use-translation";
 import Link from "next/link";
@@ -28,21 +27,32 @@ export const SocialFeedsSection = () => {
                   <Twitter className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                 </div>
                 <div>
-                  <CardTitle className="text-lg">{t("twitterUpdatesTitle")}</CardTitle>
-                  <p className="text-sm text-muted-foreground">{t("twitterUpdatesDesc")}</p>
+                  <CardTitle className="text-lg">
+                    {t("twitterUpdatesTitle")}
+                  </CardTitle>
+                  <p className="text-sm text-muted-foreground">
+                    {t("twitterUpdatesDesc")}
+                  </p>
                 </div>
               </div>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
                 <div className="flex justify-between border rounded-full p-4 items-center">
-                  <span className="text-sm text-muted-foreground">{t("liveFeedLabel")}</span>
-                  <Button size="sm" variant="outline" className="hover:bg-blue-50 dark:hover:bg-blue-900/20">
+                  <span className="text-sm text-muted-foreground">
+                    {t("liveFeedLabel")}
+                  </span>
+                  <Link
+                    href={"https://x.com/consuldjibrw?s=21"}
+                    className="hover:bg-green-50 border-2 rounded-2xl border-primary bg-white p-1 px-4 dark:hover:bg-green-900/20"
+                  >
                     {t("followButton")}
-                  </Button>
+                  </Link>
                 </div>
                 <div className="h-24 bg-muted/50 rounded-lg flex items-center justify-center">
-                  <p className="text-sm text-muted-foreground">{t("twitterLatestUpdates")}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {t("twitterLatestUpdates")}
+                  </p>
                 </div>
               </div>
             </CardContent>
@@ -55,21 +65,32 @@ export const SocialFeedsSection = () => {
                   <Building2 className="w-5 h-5 text-green-600 dark:text-green-400" />
                 </div>
                 <div>
-                  <CardTitle className="text-lg">{t("governmentNewsTitle")}</CardTitle>
-                  <p className="text-sm text-muted-foreground">{t("governmentNewsDesc")}</p>
+                  <CardTitle className="text-lg">
+                    {t("governmentNewsTitle")}
+                  </CardTitle>
+                  <p className="text-sm text-muted-foreground">
+                    {t("governmentNewsDesc")}
+                  </p>
                 </div>
               </div>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
                 <div className="flex justify-between border rounded-full p-4 items-center">
-                  <span className="text-sm text-muted-foreground">{t("officialLabel")}</span>
-                  <Link href={"https://web.facebook.com/PAGEOFFICIELLEIOG/?_rdc=1&_rdr#"} className="hover:bg-green-50 border-2 rounded-2xl border-primary bg-white p-1 px-4 dark:hover:bg-green-900/20">
+                  <span className="text-sm text-muted-foreground">
+                    {t("officialLabel")}
+                  </span>
+                  <Link
+                    href={"https://x.com/EybeAbdi"}
+                    className="hover:bg-green-50 border-2 rounded-2xl border-primary bg-white p-1 px-4 dark:hover:bg-green-900/20"
+                  >
                     {t("followButton")}
                   </Link>
                 </div>
                 <div className="h-24 bg-muted/50 rounded-lg flex items-center justify-center">
-                  <p className="text-sm text-muted-foreground">{t("governmentUpdates")}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {t("governmentUpdates")}
+                  </p>
                 </div>
               </div>
             </CardContent>

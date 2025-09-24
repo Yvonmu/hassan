@@ -24,7 +24,7 @@ const JurisdictionSection = () => {
   return (
     <section
       className="py-16 px-4 bg-gradient-to-br from-muted/30 to-background"
-      id="appointment"
+      id="embassy"
     >
       <div className="container mx-auto space-y-4">
         <div className="text-center mb-12 animate-fade-in">

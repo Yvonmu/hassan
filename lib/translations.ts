@@ -1,5 +1,7 @@
 export const translations = {
   en: {
+      "registerDjiboutiCitizens": "Register for Djibouti Citizens in Rwanda"
+,
     officeLocationTitle: "Office Location",
     officeLocationDesc:
       "Visit our office in the heart of Djibouti City's diplomatic quarter for in-person consultations and services.",
@@ -735,6 +737,8 @@ export const translations = {
     },
   },
   fr: {
+      "registerDjiboutiCitizens": "Inscription pour les citoyens de Djibouti au Rwanda"
+,
     officeLocationTitle: "Localisation du bureau",
     officeLocationDesc:
       "Visitez notre bureau au cœur du quartier diplomatique de la ville de Djibouti pour des consultations et services en personne.",
