@@ -1,7 +1,7 @@
 export const translations = {
   en: {
-      "registerDjiboutiCitizens": "Register for Djibouti Citizens in Rwanda"
-,
+    "registerDjiboutiCitizens": "Register for Djibouti Citizens in Rwanda"
+    ,
     officeLocationTitle: "Office Location",
     officeLocationDesc:
       "Visit our office in the heart of Djibouti City's diplomatic quarter for in-person consultations and services.",
@@ -735,10 +735,12 @@ export const translations = {
       consulAddress: "KG 523 Street, Nyarutarama, Kigali",
       openInMaps: "Open in Maps",
     },
+    "visitRwandaInfo": "For more information about visiting Rwanda, check out {link}."
   },
   fr: {
-      "registerDjiboutiCitizens": "Inscription pour les citoyens de Djibouti au Rwanda"
-,
+    "registerDjiboutiCitizens": "Inscription pour les citoyens de Djibouti au Rwanda"
+    , "visitRwandaInfo": "Pour plus d'informations sur la visite du Rwanda, consultez {link}."
+    ,
     officeLocationTitle: "Localisation du bureau",
     officeLocationDesc:
       "Visitez notre bureau au cœur du quartier diplomatique de la ville de Djibouti pour des consultations et services en personne.",
@@ -1435,49 +1437,49 @@ export const translations = {
     diplomaticRelationsQuote:
       "Renforcer les relations diplomatiques entre la République de Djibouti et la République du Rwanda grâce à un service consulaire dédié et un soutien à la communauté.",
 
-       "contactF": {
-    "appointments": "Rendez-vous",
-    "scheduleAppointment": "Prendre un rendez-vous",
-    "sectionDescription": "Contactez le Consulat Honoraire pour des services diplomatiques professionnels, une assistance d'urgence ou des questions générales sur les relations Djibouti-Rwanda.",
-    "officeLocationTitle": "Emplacement du Bureau",
-    "officeLocationAddress": "KG 523 Rue, N°2, Nyarutarama, Kigali, Rwanda",
-    "emailCommunication": "Communication par Email",
-    "responseTime": "Réponse sous 24h",
-    "officialCorrespondence": "Correspondance Officielle",
-    "operatingScheduleTitle": "Horaires d'ouverture",
-    "operatingDays": "Lundi - Vendredi",
-    "operatingHours": "10h00 - 16h00",
-    "closedHolidays": "Fermé les jours fériés",
-    "quickLinksTitle": "Liens Rapides",
-    "eVisaPortal": "Portail eVisa Djibouti",
-    "viewOnMaps": "Voir sur Google Maps",
-    "sendMessageTitle": "Envoyer un message / Demander un rendez-vous",
-    "sendMessageDescription": "Contactez-nous pour des services consulaires, une assistance d'urgence ou des questions diplomatiques. Nous répondons à tous les messages dans un délai de 24 heures pendant les jours ouvrables.",
-    "fullName": "Nom complet",
-    "fullNamePlaceholder": "Entrez votre nom complet",
-    "email": "Adresse email",
-    "emailPlaceholder": "votre.email@domaine.com",
-    "phoneNumber": "Numéro de téléphone",
-    "phoneNumberPlaceholder": "+250 XXX XXX XXX",
-    "citizenship": "Nationalité",
-    "citizenshipPlaceholder": "Votre nationalité",
-    "subject": "Sujet",
-    "subjectPlaceholder": "Demande de visa, Urgence, Administration...",
-    "preferredDate": "Date et heure préférée du rendez-vous",
-    "message": "Message",
-    "messagePlaceholder": "Veuillez décrire votre demande, les services requis ou besoins spécifiques...",
-    "sendMessageButton": "Envoyer le message",
-    "emergencyServices": "Services d'urgence",
-    "emergencyText": "En cas d'urgence, contactez immédiatement le +250 (0) 780 685 486 pour une réponse rapide.",
-    "emergencyButton": "Appeler maintenant",
-    "messageSentTitle": "Message envoyé",
-    "messageSentDesc": "Nous répondrons à votre demande dans un délai de 24 heures.",
-    "appointmentNote": "Toutes les demandes de rendez-vous sont traitées par email à",
-    "officeVisitNote": "Venez nous rendre visite dans notre bureau de Kigali pour des consultations en personne",
-    "consulOffice": "Bureau du Consul",
-    "consulAddress": "KG 523 Rue, Nyarutarama, Kigali",
-    "openInMaps": "Ouvrir dans Maps"
-  }
+    "contactF": {
+      "appointments": "Rendez-vous",
+      "scheduleAppointment": "Prendre un rendez-vous",
+      "sectionDescription": "Contactez le Consulat Honoraire pour des services diplomatiques professionnels, une assistance d'urgence ou des questions générales sur les relations Djibouti-Rwanda.",
+      "officeLocationTitle": "Emplacement du Bureau",
+      "officeLocationAddress": "KG 523 Rue, N°2, Nyarutarama, Kigali, Rwanda",
+      "emailCommunication": "Communication par Email",
+      "responseTime": "Réponse sous 24h",
+      "officialCorrespondence": "Correspondance Officielle",
+      "operatingScheduleTitle": "Horaires d'ouverture",
+      "operatingDays": "Lundi - Vendredi",
+      "operatingHours": "10h00 - 16h00",
+      "closedHolidays": "Fermé les jours fériés",
+      "quickLinksTitle": "Liens Rapides",
+      "eVisaPortal": "Portail eVisa Djibouti",
+      "viewOnMaps": "Voir sur Google Maps",
+      "sendMessageTitle": "Envoyer un message / Demander un rendez-vous",
+      "sendMessageDescription": "Contactez-nous pour des services consulaires, une assistance d'urgence ou des questions diplomatiques. Nous répondons à tous les messages dans un délai de 24 heures pendant les jours ouvrables.",
+      "fullName": "Nom complet",
+      "fullNamePlaceholder": "Entrez votre nom complet",
+      "email": "Adresse email",
+      "emailPlaceholder": "votre.email@domaine.com",
+      "phoneNumber": "Numéro de téléphone",
+      "phoneNumberPlaceholder": "+250 XXX XXX XXX",
+      "citizenship": "Nationalité",
+      "citizenshipPlaceholder": "Votre nationalité",
+      "subject": "Sujet",
+      "subjectPlaceholder": "Demande de visa, Urgence, Administration...",
+      "preferredDate": "Date et heure préférée du rendez-vous",
+      "message": "Message",
+      "messagePlaceholder": "Veuillez décrire votre demande, les services requis ou besoins spécifiques...",
+      "sendMessageButton": "Envoyer le message",
+      "emergencyServices": "Services d'urgence",
+      "emergencyText": "En cas d'urgence, contactez immédiatement le +250 (0) 780 685 486 pour une réponse rapide.",
+      "emergencyButton": "Appeler maintenant",
+      "messageSentTitle": "Message envoyé",
+      "messageSentDesc": "Nous répondrons à votre demande dans un délai de 24 heures.",
+      "appointmentNote": "Toutes les demandes de rendez-vous sont traitées par email à",
+      "officeVisitNote": "Venez nous rendre visite dans notre bureau de Kigali pour des consultations en personne",
+      "consulOffice": "Bureau du Consul",
+      "consulAddress": "KG 523 Rue, Nyarutarama, Kigali",
+      "openInMaps": "Ouvrir dans Maps"
+    }
   },
 };
 
