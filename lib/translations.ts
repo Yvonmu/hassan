@@ -581,6 +581,8 @@ export const translations = {
     address: "Address",
     mainLine: "Main Line",
     generalEmail: "General Email",
+    "galleryTitleRwanda": "Explore the Natural Wonders of Rwanda",
+    "gallerySubtitleRwanda": "Discover Rwanda’s breathtaking national parks, rich culture, and unique heritage through its most iconic destinations.",
 
     wonders: {
       mouchaMaskaliTitle: "Moucha & Maskali Islands",
@@ -625,8 +627,81 @@ export const translations = {
       nationalPark: "National Park",
       urbanLandmark: "Urban Landmark",
       marineParadise: "Marine Paradise",
-    },
+      "volcanoesNationalParkTitle": "Volcanoes National Park",
+      "volcanoesNationalParkLocation": "Northwestern Rwanda",
+      "volcanoesNationalParkDescription": "Home to endangered mountain gorillas and breathtaking volcanic landscapes. A top destination for gorilla trekking and eco-tourism.",
 
+      "nyungweForestTitle": "Nyungwe Forest National Park",
+      "nyungweForestLocation": "Southwestern Rwanda",
+      "nyungweForestDescription": "A lush rainforest known for canopy walkways, primate tracking, and incredible biodiversity.",
+
+      "akageraNationalParkTitle": "Akagera National Park",
+      "akageraNationalParkLocation": "Eastern Rwanda",
+      "akageraNationalParkDescription": "Famous for the Big Five and classic African safaris with lakes, savannahs, and woodlands.",
+
+      "lakeKivuTitle": "Lake Kivu",
+      "lakeKivuLocation": "Western Rwanda",
+      "lakeKivuDescription": "A scenic lake offering beaches, boat rides, and stunning views between Rwanda and the DRC.",
+
+      "kigaliGenocideMemorialTitle": "Kigali Genocide Memorial",
+      "kigaliGenocideMemorialLocation": "Kigali City",
+      "kigaliGenocideMemorialDescription": "A place of remembrance and education, honoring the victims of the 1994 genocide.",
+
+      "kigaliCityTitle": "Kigali City",
+      "kigaliCityLocation": "Capital of Rwanda",
+      "kigaliCityDescription": "A vibrant, clean, and safe city known for its culture, modern architecture, and growing tech hub.",
+
+      "gishwatiMukuraTitle": "Gishwati-Mukura National Park",
+      "gishwatiMukuraLocation": "Western Rwanda",
+      "gishwatiMukuraDescription": "A beautiful park for eco-tourism, featuring rare species and guided forest walks.",
+
+      "musanzeCavesTitle": "Musanze Caves",
+      "musanzeCavesLocation": "Musanze District",
+      "musanzeCavesDescription": "An impressive network of volcanic caves perfect for exploration and outdoor adventure.",
+
+      "ethnographicMuseumTitle": "Ethnographic Museum",
+      "ethnographicMuseumLocation": "Huye, Southern Rwanda",
+      "ethnographicMuseumDescription": "Showcasing Rwanda's rich culture and history through interactive exhibitions.",
+
+      "kingsPalaceNyanzaTitle": "King's Palace Museum",
+      "kingsPalaceNyanzaLocation": "Nyanza District",
+      "kingsPalaceNyanzaDescription": "The former seat of Rwanda's monarchy, offering insights into royal traditions and history.",
+
+      "kandtHouseMuseumTitle": "Kandt House Museum",
+      "kandtHouseMuseumLocation": "Kigali",
+      "kandtHouseMuseumDescription": "A museum dedicated to natural history and the life of Dr. Richard Kandt, Rwanda's first colonial resident.",
+
+      "sainteFamilleChurchTitle": "Sainte-Famille Church",
+      "sainteFamilleChurchLocation": "Downtown Kigali",
+      "sainteFamilleChurchDescription": "A historic church and spiritual landmark symbolizing faith and resilience.",
+
+      "mountKigaliTitle": "Mount Kigali",
+      "mountKigaliLocation": "Kigali",
+      "mountKigaliDescription": "A scenic viewpoint offering panoramic views of the city and surrounding hills.",
+
+      "rainforest": "Rainforest",
+      "safari": "Safari",
+      "lake": "Lake",
+      "historicalSite": "Historical Site",
+      "cityExperience": "City Experience",
+      "natureReserve": "Nature Reserve",
+      "museum": "Museum",
+      "religiousSite": "Religious Site",
+      "viewpoint": "Viewpoint"
+    },
+    "wondersCategory": {
+      "nationalPark": "National Park",
+      "rainforest": "Rainforest",
+      "safari": "Safari",
+      "lake": "Lake",
+      "historicalSite": "Historical Site",
+      "cityExperience": "City Experience",
+      "natureReserve": "Nature Reserve",
+      "geologicalSite": "Geological Site",
+      "museum": "Museum",
+      "religiousSite": "Religious Site",
+      "viewpoint": "Viewpoint"
+    },
     visitDjiboutiInfo:
       "Visit {link} for comprehensive travel information, tour packages, and booking assistance for these remarkable destinations.",
 
@@ -1329,6 +1404,9 @@ export const translations = {
     address: "Adresse",
     mainLine: "Numéro principal",
     generalEmail: "Email général",
+    "galleryTitleRwanda": "Explorez les Merveilles Naturelles du Rwanda",
+    "gallerySubtitleRwanda": "Découvrez les parcs nationaux spectaculaires du Rwanda, sa culture riche et son patrimoine unique à travers ses destinations les plus emblématiques.",
+
     wonders: {
       mouchaMaskaliTitle: "Îles Moucha & Maskali",
       mouchaMaskaliLocation: "Golfe de Tadjoura, Djibouti",
@@ -1373,6 +1451,81 @@ export const translations = {
       nationalPark: "Parc national",
       urbanLandmark: "Repère urbain",
       marineParadise: "Paradis marin",
+
+      "volcanoesNationalParkTitle": "Parc National des Volcans",
+      "volcanoesNationalParkLocation": "Nord-Ouest du Rwanda",
+      "volcanoesNationalParkDescription": "Abritant les gorilles de montagne en danger et des paysages volcaniques spectaculaires. Destination incontournable pour le trekking des gorilles et l'écotourisme.",
+
+      "nyungweForestTitle": "Parc National de la Forêt de Nyungwe",
+      "nyungweForestLocation": "Sud-Ouest du Rwanda",
+      "nyungweForestDescription": "Une forêt tropicale luxuriante avec des passerelles suspendues, l'observation des primates et une biodiversité exceptionnelle.",
+
+      "akageraNationalParkTitle": "Parc National de l'Akagera",
+      "akageraNationalParkLocation": "Est du Rwanda",
+      "akageraNationalParkDescription": "Connu pour les Big Five et les safaris africains classiques avec lacs, savanes et forêts.",
+
+      "lakeKivuTitle": "Lac Kivu",
+      "lakeKivuLocation": "Ouest du Rwanda",
+      "lakeKivuDescription": "Un lac pittoresque offrant plages, balades en bateau et magnifiques vues entre le Rwanda et la RDC.",
+
+      "kigaliGenocideMemorialTitle": "Mémorial du Génocide de Kigali",
+      "kigaliGenocideMemorialLocation": "Ville de Kigali",
+      "kigaliGenocideMemorialDescription": "Lieu de mémoire et d'éducation, honorant les victimes du génocide de 1994.",
+
+      "kigaliCityTitle": "Ville de Kigali",
+      "kigaliCityLocation": "Capitale du Rwanda",
+      "kigaliCityDescription": "Une ville dynamique, propre et sûre, connue pour sa culture, son architecture moderne et son secteur technologique en pleine croissance.",
+
+      "gishwatiMukuraTitle": "Parc National de Gishwati-Mukura",
+      "gishwatiMukuraLocation": "Ouest du Rwanda",
+      "gishwatiMukuraDescription": "Un magnifique parc national pour l'écotourisme avec des espèces rares et des promenades guidées en forêt.",
+
+      "musanzeCavesTitle": "Grottes de Musanze",
+      "musanzeCavesLocation": "District de Musanze",
+      "musanzeCavesDescription": "Un réseau impressionnant de grottes volcaniques, parfait pour l'exploration et l'aventure en plein air.",
+
+      "ethnographicMuseumTitle": "Musée Ethnographique",
+      "ethnographicMuseumLocation": "Huye, Sud du Rwanda",
+      "ethnographicMuseumDescription": "Offre un aperçu riche de la culture et de l'histoire du Rwanda grâce à des expositions interactives.",
+
+      "kingsPalaceNyanzaTitle": "Palais Royal de Nyanza",
+      "kingsPalaceNyanzaLocation": "District de Nyanza",
+      "kingsPalaceNyanzaDescription": "Ancien siège de la monarchie rwandaise, présentant l'histoire royale et les traditions culturelles.",
+
+      "kandtHouseMuseumTitle": "Musée Kandt House",
+      "kandtHouseMuseumLocation": "Kigali",
+      "kandtHouseMuseumDescription": "Musée consacré à l'histoire naturelle et à la vie du Dr Richard Kandt, premier résident colonial allemand au Rwanda.",
+
+      "sainteFamilleChurchTitle": "Église Sainte-Famille",
+      "sainteFamilleChurchLocation": "Centre-ville de Kigali",
+      "sainteFamilleChurchDescription": "Église historique et lieu spirituel important, symbole de la foi et de la résilience du peuple rwandais.",
+
+      "mountKigaliTitle": "Mont Kigali",
+      "mountKigaliLocation": "Kigali",
+      "mountKigaliDescription": "Un point de vue naturel offrant une vue panoramique sur la ville et les collines environnantes.",
+
+      "rainforest": "Forêt Tropicale",
+      "safari": "Safari",
+      "lake": "Lac",
+      "historicalSite": "Site Historique",
+      "cityExperience": "Expérience Urbaine",
+      "natureReserve": "Réserve Naturelle",
+      "museum": "Musée",
+      "religiousSite": "Site Religieux",
+      "viewpoint": "Point de Vue"
+    },
+    "wondersCategory": {
+      "nationalPark": "Parc National",
+      "rainforest": "Forêt Tropicale",
+      "safari": "Safari",
+      "lake": "Lac",
+      "historicalSite": "Site Historique",
+      "cityExperience": "Expérience Urbaine",
+      "natureReserve": "Réserve Naturelle",
+      "geologicalSite": "Site Géologique",
+      "museum": "Musée",
+      "religiousSite": "Site Religieux",
+      "viewpoint": "Point de Vue"
     },
     visitDjiboutiInfo:
       "Visitez {link} pour des informations complètes sur les voyages, des forfaits touristiques et de l'assistance à la réservation pour ces destinations remarquables.",
