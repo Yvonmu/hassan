@@ -81,6 +81,7 @@ export default function Home() {
         <JurisdictionSection />
         <NaturalWonders />
         <NaturalWondersRwanda />
+        
         <StayConnected />
         <SocialFeedsSection />
         <ContactSection1 />

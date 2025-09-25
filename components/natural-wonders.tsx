@@ -310,25 +310,7 @@ export default function NaturalWonders() {
             </span>
           ))}
       </div>
-      <div className="border relative rounded-xl text-center p-4 italic z-20 bg-green/50 text-black mt-6">
-        {t("visitRwandaInfo")
-          .split("{link}")
-          .map((part, idx, arr) => (
-            <span key={idx}>
-              {part}
-              {idx < arr.length - 1 && (
-                <Link
-                  href="https://www.visitrwanda.com/"
-                  className="underline font-bold text-rwanda-green cursor-pointer"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  visitrwanda.com
-                </Link>
-              )}
-            </span>
-          ))}
-      </div>
+    
     </section>
   );
 }

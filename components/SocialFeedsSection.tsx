@@ -3,14 +3,15 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Twitter, Building2 } from "lucide-react";
 import { useTranslation } from "@/hooks/use-translation";
 import Link from "next/link";
+import VideoGalleryDialog from "./VideoGalleryDialog";
 
 export const SocialFeedsSection = () => {
   const { t } = useTranslation();
 
   return (
     <section className="py-16 px-4 bg-gradient-to-br from-background to-muted/30">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12 animate-fade-in">
+      <div className="max-w-6xl mx-auto flex flex-col gap-4">
+        <div className="text-center animate-fade-in">
           <h2 className="text-3xl font-bold text-foreground mb-4">
             {t("socialFeedsTitle")}
           </h2>
@@ -18,7 +19,7 @@ export const SocialFeedsSection = () => {
             {t("socialFeedsDescription")}
           </p>
         </div>
-
+        <VideoGalleryDialog />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <Card className="hover-scale animate-fade-in border-2 hover:border-primary/20 transition-all duration-300">
             <CardHeader className="pb-4">
