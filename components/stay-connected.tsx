@@ -25,8 +25,6 @@ import {
   Phone,
 } from "lucide-react";
 import { useTranslation } from "@/hooks/use-translation";
-import { urlFor } from "@/lib/sanity";
-import Image from "next/image";
 
 interface StayConnectedProps {
   data?: {

@@ -43,8 +43,9 @@ export async function POST(req: NextRequest) {
       now: Date.now(),
       type: contentType,
     })
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error('Revalidation error:', err)
-    return NextResponse.json({ message: err.message }, { status: 500 })
+    const message = err instanceof Error ? err.message : 'Unknown error'
+    return NextResponse.json({ message }, { status: 500 })
   }
 }

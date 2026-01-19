@@ -1,11 +1,14 @@
 // TypeScript types for Sanity CMS data
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type SanityImage = any
+
 export interface HeroSection {
   _id?: string;
   title?: string;
   subtitle?: string;
   description?: string;
-  heroImage?: any;
+  heroImage?: SanityImage;
   officialTitle?: string;
   year?: string;
   location?: string;
@@ -42,7 +45,7 @@ export interface SEOMetadata {
   title?: string;
   description?: string;
   keywords?: string[];
-  ogImage?: any;
+  ogImage?: SanityImage;
   ogTitle?: string;
   ogDescription?: string;
   canonicalUrl?: string;

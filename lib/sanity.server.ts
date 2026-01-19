@@ -16,6 +16,7 @@ import type {
 // Helper function to fetch with retry logic
 async function fetchWithRetry<T>(
   query: string,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   params: Record<string, any> = {},
   options: { revalidate: number; tags: string[] },
   maxRetries = 2
@@ -26,10 +27,11 @@ async function fetchWithRetry<T>(
         next: options,
       })
       return data
-    } catch (error: any) {
-      const isNetworkError = error.isNetworkError || 
-                            error.code === 'ECONNRESET' || 
-                            error.code === 'UNKNOWN_CERTIFICATE_VERIFICATION_ERROR'
+    } catch (error: unknown) {
+      const err = error as { isNetworkError?: boolean; code?: string; message?: string }
+      const isNetworkError = err.isNetworkError || 
+                            err.code === 'ECONNRESET' || 
+                            err.code === 'UNKNOWN_CERTIFICATE_VERIFICATION_ERROR'
       
       if (isNetworkError && attempt < maxRetries) {
         const delay = 1000 * (attempt + 1) // Exponential backoff: 1s, 2s
@@ -38,7 +40,7 @@ async function fetchWithRetry<T>(
         continue
       }
       
-      console.error(`Error fetching (attempt ${attempt + 1}):`, error.message || error)
+      console.error(`Error fetching (attempt ${attempt + 1}):`, err.message || String(error))
       return null
     }
   }

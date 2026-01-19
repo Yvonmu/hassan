@@ -17,7 +17,6 @@ import { ServiceCard } from "@/components/Services/ServiceCard";
 import { VisaSection } from "@/components/Services/VisaSection";
 import { ContactModal } from "@/components/Services/ContactModal";
 import { ServiceModal } from "@/components/Services/ServiceModal";
-import { getServices } from "@/lib/sanity.server";
 
 interface ConsularExcellenceProps {
   data?: {

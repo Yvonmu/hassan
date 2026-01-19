@@ -27,7 +27,8 @@ interface DiplomaticExcellenceProps {
   } | null;
 }
 
-const iconMap: Record<string, any> = {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const iconMap: Record<string, React.ComponentType<any>> = {
   Users,
   Globe,
   Award,

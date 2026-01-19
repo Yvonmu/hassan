@@ -9,12 +9,15 @@ import { useTranslation } from "@/hooks/use-translation";
 import Image from "next/image";
 import { urlFor } from "@/lib/sanity";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type SanityImage = any
+
 interface HeroSectionProps {
   heroData?: {
     title?: string;
     subtitle?: string;
     description?: string;
-    heroImage?: any;
+    heroImage?: SanityImage;
     officialTitle?: string;
     year?: string;
     location?: string;

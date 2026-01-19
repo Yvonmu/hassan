@@ -16,8 +16,6 @@ import "swiper/css/autoplay";
 
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import Link from "next/link";
-import { urlFor } from "@/lib/sanity";
-import Image from "next/image";
 
 interface NaturalWondersRwandaProps {
   data?: {
