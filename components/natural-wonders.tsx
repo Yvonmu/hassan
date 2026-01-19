@@ -17,12 +17,15 @@ import "swiper/css/autoplay";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import Link from "next/link";
 
+import { urlFor } from "@/lib/sanity";
+
 interface NaturalWondersProps {
   data?: {
     wonders?: Array<{
       title: string;
       location: string;
       description: string;
+      image?: unknown;
       imageUrl?: string;
       rating: number;
       category: string;
@@ -223,7 +226,11 @@ export default function NaturalWonders({ data }: NaturalWondersProps) {
                   {/* Image */}
                   <div className="relative overflow-hidden aspect-[4/3]">
                     <img
-                      src={wonder.imageUrl || wonder.image || "/placeholder.svg"}
+                      src={
+                        wonder.imageUrl ||
+                        (wonder.image ? urlFor(wonder.image).width(800).height(600).url() : null) ||
+                        "/placeholder.svg"
+                      }
                       alt={wonder.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 cursor-pointer"
                       onClick={() => handleImageClick(index)}
@@ -284,7 +291,11 @@ export default function NaturalWonders({ data }: NaturalWondersProps) {
           >
             <div className="relative max-w-4xl max-h-full">
               <img
-                src={wonders[selectedImage].imageUrl || wonders[selectedImage].image || "/placeholder.svg"}
+                src={
+                  wonders[selectedImage].imageUrl ||
+                  (wonders[selectedImage].image ? urlFor(wonders[selectedImage].image).width(1200).height(800).url() : null) ||
+                  "/placeholder.svg"
+                }
                 alt={wonders[selectedImage].title}
                 className="max-w-full max-h-full object-contain rounded-lg"
               />

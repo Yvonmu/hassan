@@ -1,7 +1,7 @@
 // TypeScript types for Sanity CMS data
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-type SanityImage = any
+export type SanityImage = any
 
 export interface HeroSection {
   _id?: string;
@@ -75,6 +75,7 @@ export interface NaturalWonders {
     title: string;
     location: string;
     description: string;
+    image?: SanityImage;
     imageUrl?: string;
     rating: number;
     category: string;
@@ -88,6 +89,7 @@ export interface NaturalWondersRwanda {
     title: string;
     location: string;
     description: string;
+    image?: SanityImage;
     imageUrl?: string;
     rating: number;
     category: string;
@@ -102,6 +104,7 @@ export interface StayConnected {
   content?: Array<{
     title: string;
     description: string;
+    image?: SanityImage;
     imageUrl?: string;
     type: string;
     date: string;

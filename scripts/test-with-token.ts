@@ -28,7 +28,7 @@ async function testWithToken() {
   console.log('🧪 Testing Sanity queries WITH read-only token...\n')
   console.log(`Project: ${projectId}`)
   console.log(`Dataset: ${dataset}`)
-  console.log(`Token: ${readToken.substring(0, 10)}...${readToken.substring(readToken.length - 4)}\n`)
+  console.log(`Token: ${readToken!.substring(0, 10)}...${readToken!.substring(readToken!.length - 4)}\n`)
 
   const queries = {
     heroSection: `*[_type == "heroSection"][0]{

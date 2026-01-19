@@ -1,9 +1,14 @@
 import { defineCliConfig } from 'sanity/cli'
-import { config } from 'dotenv'
-import { resolve } from 'path'
 
-// Load environment variables from .env.local
-config({ path: resolve(process.cwd(), '.env.local') })
+// Load environment variables from .env.local (optional - will use process.env if not found)
+try {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const { config } = require('dotenv')
+  const { resolve } = require('path')
+  config({ path: resolve(process.cwd(), '.env.local') })
+} catch {
+  // dotenv not available or .env.local doesn't exist - use process.env
+}
 
 export default defineCliConfig({
   api: {

@@ -25,6 +25,7 @@ import {
   Phone,
 } from "lucide-react";
 import { useTranslation } from "@/hooks/use-translation";
+import { urlFor } from "@/lib/sanity";
 
 interface StayConnectedProps {
   data?: {
@@ -33,6 +34,7 @@ interface StayConnectedProps {
     content?: Array<{
       title: string;
       description: string;
+      image?: unknown;
       imageUrl?: string;
       type: string;
       date: string;
@@ -172,7 +174,11 @@ export default function StayConnected({ data }: StayConnectedProps) {
             >
               <div className="relative overflow-hidden">
                 <img
-                  src={item.image || "/placeholder.svg"}
+                  src={
+                    item.imageUrl ||
+                    (item.image ? urlFor(item.image).width(800).height(600).url() : null) ||
+                    "/placeholder.svg"
+                  }
                   alt={item.title}
                   className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                 />

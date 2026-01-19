@@ -33,16 +33,32 @@ if (!token) {
       'Add a Sanity API token with Editor permissions to `.env.local`, e.g.:',
       'SANITY_API_TOKEN=sk....',
       '',
-      'Create it in Sanity Manage → Project (ik1g399m) → API → Tokens → Add API token → Permissions: Editor.',
+      'Create it in Sanity Manage → Project → API → Tokens → Add API token → Permissions: Editor.',
       '',
     ].join('\n')
   )
   process.exit(1)
 }
 
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
+if (!projectId) {
+  console.error(
+    [
+      '',
+      '❌ Missing NEXT_PUBLIC_SANITY_PROJECT_ID.',
+      'Add your Sanity project ID to `.env.local`, e.g.:',
+      'NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id',
+      '',
+    ].join('\n')
+  )
+  process.exit(1)
+}
+
+const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production'
+
 const client = createClient({
-  projectId: 'ik1g399m',
-  dataset: 'production',
+  projectId,
+  dataset,
   useCdn: false,
   apiVersion: '2024-01-01',
   token,
@@ -220,7 +236,7 @@ async function seedContent() {
           await client.patch(service._id).set(service).commit()
           console.log(`✅ Service "${service.title}" updated:`, service._id)
         } else {
-          await client.create({ _id: service._id, _type: 'service', ...service })
+          await client.create({ _type: 'service', ...service })
           console.log(`✅ Service "${service.title}" created and published:`, service._id)
         }
       } catch (error: any) {

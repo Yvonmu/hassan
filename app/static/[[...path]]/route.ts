@@ -43,7 +43,7 @@ export async function GET(
       ttf: 'font/ttf',
     }
     
-    return new NextResponse(file, {
+    return new NextResponse(new Uint8Array(file), {
       headers: {
         'Content-Type': contentType[ext || ''] || 'application/octet-stream',
         'Cache-Control': 'public, max-age=3600',

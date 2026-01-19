@@ -1,8 +1,14 @@
 {
+  "buildCommand": "npm run build:studio || true && npx next build",
+  "framework": "nextjs",
   "rewrites": [
     {
       "source": "/studio/:path*",
       "destination": "/studio/:path*"
+    },
+    {
+      "source": "/static/:path*",
+      "destination": "/static/:path*"
     }
   ],
   "headers": [
@@ -11,7 +17,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=3600, must-revalidate"
+          "value": "public, max-age=3600"
         }
       ]
     }

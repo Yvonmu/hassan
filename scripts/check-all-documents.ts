@@ -59,17 +59,19 @@ async function checkDocuments() {
         { filterResponse: false }
       )
 
-      const publishedCount = published?.length || 0
-      const draftCount = drafts?.length || 0
+      const publishedResult = published.result || []
+      const draftsResult = drafts.result || []
+      const publishedCount = publishedResult.length
+      const draftCount = draftsResult.length
 
       if (publishedCount > 0) {
         console.log(`✅ ${type}: ${publishedCount} published document(s)`)
-        published.forEach((doc: any) => {
+        publishedResult.forEach((doc: any) => {
           console.log(`   - ${doc._id}`)
         })
       } else if (draftCount > 0) {
         console.log(`⚠️  ${type}: ${draftCount} draft document(s) (NOT PUBLISHED!)`)
-        drafts.forEach((doc: any) => {
+        draftsResult.forEach((doc: any) => {
           console.log(`   - ${doc._id}`)
         })
       } else {

@@ -30,4 +30,3 @@ export default defineConfig({
   // For production, you'll need to register the studio or add development hosts
   // See: https://www.sanity.io/docs/studio-development-hosts
 })
-
