@@ -5,7 +5,18 @@ import { useTranslation } from "@/hooks/use-translation";
 import Link from "next/link";
 import VideoGalleryDialog from "./VideoGalleryDialog";
 
-export const SocialFeedsSection = () => {
+interface SocialFeedsSectionProps {
+  data?: {
+    title?: string;
+    description?: string;
+    twitterUrl?: string;
+    linkedinUrl?: string;
+    facebookUrl?: string;
+    youtubeUrl?: string;
+  } | null;
+}
+
+export const SocialFeedsSection = ({ data }: SocialFeedsSectionProps) => {
   const { t } = useTranslation();
 
   return (
@@ -13,10 +24,10 @@ export const SocialFeedsSection = () => {
       <div className="max-w-6xl mx-auto flex flex-col gap-4">
         <div className="text-center animate-fade-in">
           <h2 className="text-3xl font-bold text-foreground mb-4">
-            {t("socialFeedsTitle")}
+            {data?.title || t("socialFeedsTitle")}
           </h2>
           <p className="text-muted-foreground max-w-3xl mx-auto">
-            {t("socialFeedsDescription")}
+            {data?.description || t("socialFeedsDescription")}
           </p>
         </div>
         <VideoGalleryDialog />
@@ -44,7 +55,7 @@ export const SocialFeedsSection = () => {
                     {t("liveFeedLabel")}
                   </span>
                   <Link
-                    href={"https://x.com/consuldjibrw?s=21"}
+                    href={data?.twitterUrl || "https://x.com/consuldjibrw?s=21"}
                     className="hover:bg-green-50 border-2 rounded-2xl border-primary bg-white p-1 px-4 dark:hover:bg-green-900/20"
                   >
                     {t("followButton")}

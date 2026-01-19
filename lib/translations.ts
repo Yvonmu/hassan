@@ -184,6 +184,7 @@ export const translations = {
     emergencyEmail: "emergency@consulate.dj",
     emergencySupport24_7: "24/7 Emergency Support",
     callEmergencyLine: "Call Emergency Line",
+    emergencyLine: "Emergency Line",
 
     // Office Hours
     officeHours: "Office Hours",
@@ -1002,6 +1003,7 @@ export const translations = {
     emergencyEmail: "emergency@consulate.dj",
     emergencySupport24_7: "Support d'Urgence 24h/24",
     callEmergencyLine: "Appeler la Ligne d'Urgence",
+    emergencyLine: "Ligne d'Urgence",
 
     // Office Hours
     officeHours: "Heures d'Ouverture",

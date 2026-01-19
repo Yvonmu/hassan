@@ -25,8 +25,27 @@ import {
   Phone,
 } from "lucide-react";
 import { useTranslation } from "@/hooks/use-translation";
+import { urlFor } from "@/lib/sanity";
+import Image from "next/image";
 
-export default function StayConnected() {
+interface StayConnectedProps {
+  data?: {
+    title?: string;
+    description?: string;
+    content?: Array<{
+      title: string;
+      description: string;
+      imageUrl?: string;
+      type: string;
+      date: string;
+      location: string;
+      buttonLink: string;
+      link: string;
+    }>;
+  } | null;
+}
+
+export default function StayConnected({ data }: StayConnectedProps) {
   const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
   const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
@@ -55,11 +74,12 @@ export default function StayConnected() {
     return () => observer.disconnect();
   }, []);
 
- const content = [
+ const content = data?.content || [
   {
     title: t("adiTitle"), // "ADI - Agence Djiboutienne d'Information"
     description: t("adiDescription"), 
     image: "/images/ea18ec7b42462a5d1315a85007aab2bc.jpg",
+    imageUrl: "/images/ea18ec7b42462a5d1315a85007aab2bc.jpg",
     type: t("culturalFestivalType"),
     date: t("culturalFestivalDate"),
     location: t("culturalFestivalLocation"),

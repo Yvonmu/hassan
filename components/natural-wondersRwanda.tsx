@@ -16,8 +16,24 @@ import "swiper/css/autoplay";
 
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import Link from "next/link";
+import { urlFor } from "@/lib/sanity";
+import Image from "next/image";
 
-export default function NaturalWondersRwanda() {
+interface NaturalWondersRwandaProps {
+  data?: {
+    wonders?: Array<{
+      title: string;
+      location: string;
+      description: string;
+      imageUrl?: string;
+      rating: number;
+      category: string;
+      link: string;
+    }>;
+  } | null;
+}
+
+export default function NaturalWondersRwanda({ data }: NaturalWondersRwandaProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -40,12 +56,13 @@ export default function NaturalWondersRwanda() {
     return () => observer.disconnect();
   }, []);
 
-const wonders = [
+const wonders = data?.wonders || [
   {
     title: t("wonders.volcanoesNationalParkTitle"),
     location: t("wonders.volcanoesNationalParkLocation"),
     description: t("wonders.volcanoesNationalParkDescription"),
     image: "/images/Gorillas-in-volcanoes-national-park2-1.jpeg",
+    imageUrl: "/images/Gorillas-in-volcanoes-national-park2-1.jpeg",
     rating: 4.9,
     category: t("wonders.nationalPark"),
     link: "https://www.volcanoesnationalparkrwanda.com/",
@@ -228,7 +245,7 @@ const wonders = [
                   {/* Image */}
                   <div className="relative overflow-hidden aspect-[4/3]">
                     <img
-                      src={wonder.image || "/placeholder.svg"}
+                      src={wonder.imageUrl || wonder.image || "/placeholder.svg"}
                       alt={wonder.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 cursor-pointer"
                       onClick={() => handleImageClick(index)}
@@ -289,7 +306,7 @@ const wonders = [
           >
             <div className="relative max-w-4xl max-h-full">
               <img
-                src={wonders[selectedImage].image || "/placeholder.svg"}
+                src={wonders[selectedImage].imageUrl || wonders[selectedImage].image || "/placeholder.svg"}
                 alt={wonders[selectedImage].title}
                 className="max-w-full max-h-full object-contain rounded-lg"
               />

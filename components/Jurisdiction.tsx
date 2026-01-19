@@ -18,7 +18,17 @@ import { useState } from "react";
 import { useTranslation } from "@/hooks/use-translation";
 import Link from "next/link";
 
-const JurisdictionSection = () => {
+interface JurisdictionSectionProps {
+  data?: {
+    label?: string;
+    title?: string;
+    description?: string;
+    infoText?: string;
+    visaPassportInfo?: string;
+  } | null;
+}
+
+const JurisdictionSection = ({ data }: JurisdictionSectionProps) => {
   const { t } = useTranslation();
 
   return (
@@ -29,13 +39,13 @@ const JurisdictionSection = () => {
       <div className="container mx-auto space-y-4">
         <div className="text-center mb-12 animate-fade-in">
           <div className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
-            {t("embassyLabel")}
+            {data?.label || t("embassyLabel")}
           </div>
           <h2 className="text-3xl font-bold text-foreground mb-4">
-            {t("jurisdictionTitle")}
+            {data?.title || t("jurisdictionTitle")}
           </h2>
           <p className="text-muted-foreground max-w-3xl mx-auto">
-            {t("jurisdictionDescription")}
+            {data?.description || t("jurisdictionDescription")}
           </p>
         </div>
          <Card className="group hover:shadow-lg transition-all duration-300 hover:scale-105 bg-yellow-200/50 text-foreground">

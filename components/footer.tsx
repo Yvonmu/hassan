@@ -14,7 +14,29 @@ import Image from "next/image";
 import { Card, CardContent, CardHeader } from "./ui/card";
 import Link from "next/link";
 
-export default function Footer() {
+interface FooterProps {
+  globalSettings?: {
+    contactInfo?: {
+      phone?: string;
+      email?: string;
+      address?: string;
+      officeHours?: string;
+    };
+    footer?: {
+      brandDescription?: string;
+      quickLinks?: Array<{ name: string; href: string }>;
+      services?: string[];
+      copyright?: string;
+    };
+    socialMedia?: {
+      twitter?: string;
+      linkedin?: string;
+      facebook?: string;
+    };
+  } | null;
+}
+
+export default function Footer({ globalSettings }: FooterProps) {
   const { t } = useTranslation();
 
   const scrollToTop = () => {
@@ -23,9 +45,9 @@ export default function Footer() {
 
   const handleSocialClick = (platform: string) => {
     const urls = {
-      twitter: "https://twitter.com/hassan_diplomatic",
-      linkedin: "https://linkedin.com/in/hassan-adan-hassan",
-      email: "mailto:info@consuldjibouti.com",
+      twitter: globalSettings?.socialMedia?.twitter || "https://twitter.com/hassan_diplomatic",
+      linkedin: globalSettings?.socialMedia?.linkedin || "https://linkedin.com/in/hassan-adan-hassan",
+      email: `mailto:${globalSettings?.contactInfo?.email || "info@consuldjibouti.com"}`,
     };
 
     if (platform === "email") {
@@ -35,14 +57,14 @@ export default function Footer() {
     }
   };
 
-  const quickLinks = [
+  const quickLinks = globalSettings?.footer?.quickLinks || [
     { name: t("diplomaticServices"), href: "diplomatic" },
     { name: t("consularServices"), href: "consular" },
     { name: t("gallery"), href: "gallery" },
     { name: t("contact"), href: "contact" },
   ];
 
-  const services = [
+  const services = globalSettings?.footer?.services || [
     // t("visaProcessing"),
     // t("passportServices"),
     t("citizenSupport"),
@@ -76,7 +98,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              {t("footerBrandDescription")}
+              {globalSettings?.footer?.brandDescription || t("footerBrandDescription")}
             </p>
             <div className="flex justify- gap-2">
               <div className="w-10 h-6 rounded-sm overflow-hidden shadow-sm relative">
@@ -145,12 +167,12 @@ export default function Footer() {
             </h3>
             <div className="space-y-3">
               <button
-                onClick={() => window.open("tel:+250780685486", "_self")}
+                onClick={() => window.open(`tel:${globalSettings?.contactInfo?.phone || "+250780685486"}`, "_self")}
                 className="flex items-center space-x-3 text-sm hover:text-djibouti-blue transition-colors group w-full text-left"
               >
                 <Phone className="h-4 w-4 text-djibouti-blue group-hover:animate-bounce" />
                 <span className="text-muted-foreground">
-                  +250 (0) 780 685 486
+                  {globalSettings?.contactInfo?.phone || "+250 (0) 780 685 486"}
                 </span>
               </button>
               <button
@@ -159,7 +181,7 @@ export default function Footer() {
               >
                 <Mail className="h-4 w-4 text-rwanda-green group-hover:animate-bounce" />
                 <span className="text-muted-foreground">
-                  info@consuldjibouti.com
+                  {globalSettings?.contactInfo?.email || "info@consuldjibouti.com"}
                 </span>
               </button>
               <button
@@ -172,7 +194,7 @@ export default function Footer() {
               >
                 <MapPin className="h-4 w-4 text-rwanda-blue mt-0.5 group-hover:animate-bounce" />
                 <span className="text-muted-foreground">
-                  KG 523 Street, Nyarutarama, Kigali
+                  {globalSettings?.contactInfo?.address || "KG 523 Street, Nyarutarama, Kigali"}
                 </span>
               </button>
             </div>
@@ -242,7 +264,7 @@ export default function Footer() {
         <div className="border-t border-border mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-sm text-muted-foreground">
-              {t("copyright")}
+              {globalSettings?.footer?.copyright || t("copyright")}
             </div>
             <div className="flex items-center space-x-4">
               <button

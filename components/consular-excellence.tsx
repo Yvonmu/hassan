@@ -17,7 +17,21 @@ import { ServiceCard } from "@/components/Services/ServiceCard";
 import { VisaSection } from "@/components/Services/VisaSection";
 import { ContactModal } from "@/components/Services/ContactModal";
 import { ServiceModal } from "@/components/Services/ServiceModal";
-export default function ConsularExcellence() {
+import { getServices } from "@/lib/sanity.server";
+
+interface ConsularExcellenceProps {
+  data?: {
+    actionCards?: Array<{
+      title: string;
+      subtitle: string;
+      buttonText: string;
+      type: 'emergency' | 'schedule' | 'visa';
+      visaPortalUrl?: string;
+    }>;
+  } | null;
+}
+
+export default function ConsularExcellence({ data }: ConsularExcellenceProps) {
   const { t } = useTranslation();
   const [contactModal, setContactModal] = useState<{
     isOpen: boolean;
@@ -38,8 +52,15 @@ export default function ConsularExcellence() {
   };
 
   const handleVisaPortal = () => {
-    window.open("https://www.evisa.gouv.dj/applicant-api/#/", "_blank");
+    const visaUrl = data?.actionCards?.find(card => card.type === 'visa')?.visaPortalUrl || "https://www.evisa.gouv.dj/applicant-api/#/";
+    window.open(visaUrl, "_blank");
   };
+  
+  const actionCards = data?.actionCards || [
+    { title: t("emergencyHotline"), subtitle: t("immediateAssistance"), buttonText: t("callNow"), type: 'emergency' as const },
+    { title: t("officeHours"), subtitle: t("officeSchedule"), buttonText: t("scheduleVisit"), type: 'schedule' as const },
+    { title: t("eVisaPortal"), subtitle: t("visaServices"), buttonText: t("applyOnline"), type: 'visa' as const, visaPortalUrl: "https://www.evisa.gouv.dj/applicant-api/#/" },
+  ];
 
   return (
     <div className="min-h-screen bg-background" id="consular">
@@ -49,27 +70,30 @@ export default function ConsularExcellence() {
       <section className="py-8 px-4">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <ActionCard
-              title={t("emergencyHotline")}
-              subtitle={t("immediateAssistance")}
-              buttonText={t("callNow")}
-              icon={<Phone className="w-6 h-6" />}
-              onClick={() => handleContactModal("emergency")}
-            />
-            <ActionCard
-              title={t("officeHours")}
-              subtitle={t("officeSchedule")}
-              buttonText={t("scheduleVisit")}
-              icon={<Clock className="w-6 h-6" />}
-              onClick={() => handleContactModal("schedule")}
-            />
-            <ActionCard
-              title={t("eVisaPortal")}
-              subtitle={t("visaServices")}
-              buttonText={t("applyOnline")}
-              icon={<ExternalLink className="w-6 h-6" />}
-              onClick={handleVisaPortal}
-            />
+            {actionCards.map((card, index) => {
+              const iconMap = {
+                emergency: <Phone className="w-6 h-6" />,
+                schedule: <Clock className="w-6 h-6" />,
+                visa: <ExternalLink className="w-6 h-6" />,
+              };
+              
+              return (
+                <ActionCard
+                  key={index}
+                  title={card.title}
+                  subtitle={card.subtitle}
+                  buttonText={card.buttonText}
+                  icon={iconMap[card.type]}
+                  onClick={() => {
+                    if (card.type === 'visa') {
+                      handleVisaPortal();
+                    } else {
+                      handleContactModal(card.type);
+                    }
+                  }}
+                />
+              );
+            })}
           </div>
         </div>
       </section>

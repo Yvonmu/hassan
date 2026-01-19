@@ -1,0 +1,118 @@
+[
+  {
+    "_type": "heroSection",
+    "title": "Hassan Adan Hassan",
+    "subtitle": "Diplomatic Representative",
+    "description": "Dedicated to fostering international relations between Djibouti and Rwanda through strategic diplomatic initiatives and cultural exchange programs.",
+    "officialTitle": "Official",
+    "year": "2024",
+    "location": "Kigali",
+    "consulName": "Hassan Adan Hassan",
+    "consulTitle": "Honorary Consul",
+    "consulateFull": "Republic of Djibouti in Rwanda"
+  },
+  {
+    "_type": "globalSettings",
+    "siteName": "Djibouti Consulate Rwanda",
+    "contactInfo": {
+      "phone": "+250 (0) 780 685 486",
+      "email": "info@consuldjibouti.com",
+      "address": "KG 523 Street, Nyarutarama\nKigali, Rwanda",
+      "officeHours": "Monday - Friday: 10:00 AM - 4:00 PM\nClosed on Public Holidays"
+    },
+    "footer": {
+      "brandDescription": "Official consular and diplomatic services of Djibouti.",
+      "quickLinks": [
+        { "name": "Diplomatic Services", "href": "diplomatic" },
+        { "name": "Consular Services", "href": "consular" },
+        { "name": "Gallery", "href": "gallery" },
+        { "name": "Contact", "href": "contact" }
+      ],
+      "services": [
+        "Citizen Support",
+        "Emergency Assistance",
+        "Business Facilitation",
+        "Cultural Exchange"
+      ],
+      "copyright": "© 2025 Consulate of Djibouti. All rights reserved."
+    },
+    "socialMedia": {
+      "twitter": "https://twitter.com/hassan_diplomatic",
+      "linkedin": "https://linkedin.com/in/hassan-adan-hassan"
+    }
+  },
+  {
+    "_type": "seoMetadata",
+    "page": "home",
+    "title": "Honorary Consulate of Djibouti in Rwanda | Official Services",
+    "description": "Official consular services of Djibouti in Rwanda. Book appointments, register Djibouti citizens in Rwanda, and access diplomatic services.",
+    "keywords": [
+      "Djibouti Consulate Rwanda",
+      "Djibouti Embassy Ethiopia",
+      "Hassan Adan Hassan",
+      "Djibouti Visa Rwanda",
+      "Consular Services Kigali"
+    ],
+    "ogTitle": "Honorary Consulate of Djibouti in Rwanda",
+    "ogDescription": "Connecting Djibouti and Rwanda through dedicated diplomatic services and citizen support.",
+    "canonicalUrl": "https://djibouticonsul.rw"
+  },
+  {
+    "_type": "service",
+    "title": "Emergency Assistance",
+    "description": "24/7 crisis support for Djiboutian nationals facing medical emergencies, legal difficulties, and urgent travel situations in Rwanda.",
+    "priority": "critical",
+    "features": [
+      "24/7 Availability",
+      "Crisis Management",
+      "Medical Support",
+      "Legal Assistance"
+    ],
+    "icon": "AlertTriangle",
+    "order": 1
+  },
+  {
+    "_type": "service",
+    "title": "Document Services",
+    "description": "Professional authentication and verification of documents with official consular attestation and proper protocols.",
+    "priority": "medium",
+    "features": [
+      "Authentication",
+      "Official Stamps",
+      "Verification",
+      "Fast Processing"
+    ],
+    "icon": "FileText",
+    "order": 2
+  },
+  {
+    "_type": "service",
+    "title": "Community Support",
+    "description": "Registration services and community building for Djiboutian citizens residing in Rwanda, maintaining comprehensive records.",
+    "priority": "medium",
+    "features": [
+      "Citizen Registration",
+      "Support Network",
+      "Community Events",
+      "Cultural Programs"
+    ],
+    "icon": "Users",
+    "order": 3
+  },
+  {
+    "_type": "service",
+    "title": "Business Development",
+    "description": "Trade facilitation and business networking to strengthen economic partnerships between Djibouti and Rwanda.",
+    "priority": "high",
+    "features": [
+      "Trade Support",
+      "Networking",
+      "Investment Info",
+      "Economic Partnerships"
+    ],
+    "icon": "TrendingUp",
+    "order": 4
+  }
+]
+
+

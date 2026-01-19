@@ -16,8 +16,24 @@ import "swiper/css/autoplay";
 
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import Link from "next/link";
+import { urlFor } from "@/lib/sanity";
+import Image from "next/image";
 
-export default function NaturalWonders() {
+interface NaturalWondersProps {
+  data?: {
+    wonders?: Array<{
+      title: string;
+      location: string;
+      description: string;
+      imageUrl?: string;
+      rating: number;
+      category: string;
+      link: string;
+    }>;
+  } | null;
+}
+
+export default function NaturalWonders({ data }: NaturalWondersProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -40,12 +56,13 @@ export default function NaturalWonders() {
     return () => observer.disconnect();
   }, []);
 
-  const wonders = [
+  const wonders = data?.wonders || [
     {
       title: t("wonders.mouchaMaskaliTitle"),
       location: t("wonders.mouchaMaskaliLocation"),
       description: t("wonders.mouchaMaskaliDescription"),
       image: "/images/Moucha_Island.jpg",
+      imageUrl: "/images/Moucha_Island.jpg",
       rating: 4.5,
       category: t("wonders.volcanicSite"),
       link: "https://archiqoo.com/unesco/unesco_natural_sub_lists.php?uw_country=djibouti&subsite=moucha_maskali_islands",
@@ -208,7 +225,7 @@ export default function NaturalWonders() {
                   {/* Image */}
                   <div className="relative overflow-hidden aspect-[4/3]">
                     <img
-                      src={wonder.image || "/placeholder.svg"}
+                      src={wonder.imageUrl || wonder.image || "/placeholder.svg"}
                       alt={wonder.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 cursor-pointer"
                       onClick={() => handleImageClick(index)}
@@ -269,7 +286,7 @@ export default function NaturalWonders() {
           >
             <div className="relative max-w-4xl max-h-full">
               <img
-                src={wonders[selectedImage].image || "/placeholder.svg"}
+                src={wonders[selectedImage].imageUrl || wonders[selectedImage].image || "/placeholder.svg"}
                 alt={wonders[selectedImage].title}
                 className="max-w-full max-h-full object-contain rounded-lg"
               />

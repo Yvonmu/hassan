@@ -7,14 +7,36 @@ import { Badge } from "@/components/ui/badge";
 import { Phone, BookCheck } from "lucide-react";
 import { useTranslation } from "@/hooks/use-translation";
 import Image from "next/image";
+import { urlFor } from "@/lib/sanity";
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  heroData?: {
+    title?: string;
+    subtitle?: string;
+    description?: string;
+    heroImage?: any;
+    officialTitle?: string;
+    year?: string;
+    location?: string;
+    consulName?: string;
+    consulTitle?: string;
+    consulateFull?: string;
+  } | null;
+}
+
+export default function HeroSection({ heroData }: HeroSectionProps) {
   const [isVisible, setIsVisible] = useState(false);
   const { t } = useTranslation();
 
   useEffect(() => {
     setIsVisible(true);
-  }, []);
+    // Debug: Log the heroData to see what we're getting
+    if (heroData) {
+      console.log('Hero Data from Sanity:', heroData);
+    } else {
+      console.log('No hero data from Sanity - using translations');
+    }
+  }, [heroData]);
 
   return (
     <section
@@ -39,12 +61,12 @@ export default function HeroSection() {
           >
             <div className="space-y-4">
               <h1 className="text-5xl lg:text-6xl font-bold text-foreground leading-tight drop-shadow-lg">
-                {t("heroName")}
+                {heroData?.title || t("heroName")}
                 <br />
-                <span className="text-rwanda-blue">{t("heroTitle")}</span>
+                <span className="text-rwanda-blue">{heroData?.subtitle || t("heroTitle")}</span>
               </h1>
               <p className="text-xl text-foreground/90 max-w-lg drop-shadow-md">
-                {t("heroDescription")}
+                {heroData?.description || t("heroDescription")}
               </p>
             </div>
 
@@ -56,7 +78,7 @@ export default function HeroSection() {
                     element.scrollIntoView({ behavior: "smooth" });
                   }
                 }}
-                className="bg-foreground hover:bg-djibouti-blue/90 text-white px-8 py-3 text-lg font-medium transition-all duration-300 hover:scale-105 hover-lift"
+                className="bg-djibouti-blue text-white hover:bg-djibouti-blue/90 px-8 py-3 text-lg font-medium transition-all duration-300 hover:scale-105 hover-lift"
               >
                 <BookCheck className="h-5 w-5 mr-2" />
                 {t("bookAppointment")}
@@ -94,19 +116,19 @@ export default function HeroSection() {
             <div className="flex flex-col sm:flex-row justify-between gap-4">
               <div className="flex flex-col">
                 <h1 className="text-3xl lg:text-4xl font-bold text-foreground leading-tight drop-shadow-lg">
-                  {t("officialTitle")}
+                  {heroData?.officialTitle || t("officialTitle")}
                 </h1>
                 <p>{t("diplomaticStatus")}</p>
               </div>
               <div className="flex flex-col">
                 <h1 className="text-3xl lg:text-4xl font-bold text-[#E8B364] leading-tight drop-shadow-lg">
-                  Kigali
+                  {heroData?.location || "Kigali"}
                 </h1>
                 <p>{t("consulateLocation")}</p>
               </div>
               <div className="flex flex-col">
                 <h1 className="text-3xl lg:text-4xl font-bold text-foreground leading-tight drop-shadow-lg">
-                  {t("year")}
+                  {heroData?.year || t("year")}
                 </h1>
                 <p>{t("appointedSince")}</p>
               </div>
@@ -128,29 +150,37 @@ export default function HeroSection() {
             <div className=" h-full md:w-3/4 w-full bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-2xl hover-lift">
               <div className="relative p-2">
                 {/* Image */}
-                <Image
-                  src="/images/hassan.png"
-                  alt="Hassan Adan Hassan"
-                  width={600}
-                  height={400}
-                  className="w-full h-auto rounded-lg object-cover"
-                  priority
-                />
+                {heroData?.heroImage?.asset?._ref || heroData?.heroImage ? (
+                  <img
+                    src={heroData.heroImage?.asset?.url || urlFor(heroData.heroImage).width(600).height(400).url()}
+                    alt={heroData.consulName || "Hassan Adan Hassan"}
+                    className="w-full h-auto rounded-lg object-cover"
+                  />
+                ) : (
+                  <Image
+                    src="/images/hassan.png"
+                    alt="Hassan Adan Hassan"
+                    width={600}
+                    height={400}
+                    className="w-full h-auto rounded-lg object-cover"
+                    priority
+                  />
+                )}
 
                 {/* Badge on top-right */}
                 <div className="absolute top-4 right-4">
                   <Badge className="bg-rwanda-blue text-white">
-                    {t("heroTitle")}
+                    {heroData?.subtitle || t("heroTitle")}
                   </Badge>
                 </div>
               </div>
               <div className="relative">
                 {/* Centered overlay partially on image */}
                 <div className="absolute -top-20 left-1/2 flex flex-col gap-2 items-center -translate-x-1/2 bg-white/90 backdrop-blur-3xl w-3/4 text-center p-4 rounded-2xl text-">
-                  <h1 className="text-2xl font-bold">Hassan Adan Hassan</h1>
-                  <Badge>{t("consulTitle")}</Badge>
-                  <h3>{t("consulateFull")}</h3>
-                  <p>{t("location")}</p>
+                  <h1 className="text-2xl font-bold">{heroData?.consulName || "Hassan Adan Hassan"}</h1>
+                  <Badge>{heroData?.consulTitle || t("consulTitle")}</Badge>
+                  <h3>{heroData?.consulateFull || t("consulateFull")}</h3>
+                  <p>{heroData?.location || t("location")}</p>
                   <div className="flex justify-center gap-2">
                     <div className="w-12 h-8 rounded-sm overflow-hidden shadow-sm relative">
                       <Image

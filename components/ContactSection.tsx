@@ -12,7 +12,18 @@ import Link from "next/link";
 import { toast } from "sonner";
 import { sendContactFormAction } from "@/actions/sendContactFormAction";
 
-const ContactSection = () => {
+interface ContactSectionProps {
+  globalSettings?: {
+    contactInfo?: {
+      phone?: string;
+      email?: string;
+      address?: string;
+      officeHours?: string;
+    };
+  } | null;
+}
+
+const ContactSection = ({ globalSettings }: ContactSectionProps) => {
   const { t } = useTranslation();
   const [formData, setFormData] = useState({
     fullName: "",
@@ -97,7 +108,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                   <CardTitle>{t("contactF.emailCommunication")}</CardTitle>
                 </div>
                 <p className="text-sm text-muted-foreground mb-2">
-                  info@consuldjibouti.com - {t("contactF.responseTime")}
+                  {globalSettings?.contactInfo?.email || "info@consuldjibouti.com"} - {t("contactF.responseTime")}
                 </p>
                 <p className="text-sm text-muted-foreground">{t("contactF.officialCorrespondence")}</p>
               </CardContent>
@@ -268,7 +279,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                 <Button
                   variant="secondary"
                   className="bg-white text-primary hover:bg-gray-100 transition-all duration-300"
-                  onClick={() => window.open("tel:+250780685486", "_self")}
+                  onClick={() => window.open(`tel:${globalSettings?.contactInfo?.phone || "+250780685486"}`, "_self")}
                 >
                   <Phone className="h-4 w-4 mr-2" />
                   {t("contactF.emergencyButton")}
@@ -280,8 +291,8 @@ const handleSubmit = async (e: React.FormEvent) => {
 
         <div className="border rounded-xl text-center p-4 z-10 italic bg-blue/50 text-black">
           {t("contactF.appointmentNote")}{" "}
-          <Link href={"mailto:info@consuldjibouti.com"} className="underline font-bold text-primary">
-            info@consuldjibouti.com
+          <Link href={`mailto:${globalSettings?.contactInfo?.email || "info@consuldjibouti.com"}`} className="underline font-bold text-primary">
+            {globalSettings?.contactInfo?.email || "info@consuldjibouti.com"}
           </Link>
         </div>
 

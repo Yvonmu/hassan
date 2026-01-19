@@ -7,10 +7,35 @@ import { useTranslation } from "@/hooks/use-translation"
 import LanguageSwitcher from "@/components/language-switcher"
 import Image from "next/image"
 
-export default function Header() {
+interface HeaderProps {
+  headerSettings?: {
+    missionText?: string;
+    navigationItems?: Array<{ label: string; sectionId: string; order: number }>;
+  } | null;
+  globalSettings?: {
+    contactInfo?: {
+      phone?: string;
+      email?: string;
+    };
+  } | null;
+}
+
+export default function Header({ headerSettings, globalSettings }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const { t } = useTranslation()
+  
+  const phone = globalSettings?.contactInfo?.phone || t("phone")
+  const email = globalSettings?.contactInfo?.email || t("email")
+  const missionText = headerSettings?.missionText || "Diplomatic Mission"
+  
+  const navigationItems = headerSettings?.navigationItems?.sort((a, b) => (a.order || 0) - (b.order || 0)) || [
+    { label: t("home"), sectionId: "home", order: 1 },
+    { label: t("diplomaticExcellence"), sectionId: "diplomatic", order: 2 },
+    { label: t("consularServices"), sectionId: "consular", order: 3 },
+    { label: t("gallery"), sectionId: "gallery", order: 4 },
+    { label: t("contact"), sectionId: "contact", order: 5 },
+  ]
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,19 +60,19 @@ export default function Header() {
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-2">
               <Phone className="h-4 w-4 animate-bounce hover:animate-pulse" />
-              <a href={`tel:${t("phone")}`} className="hover:underline">
-                {t("phone")}
+              <a href={`tel:${phone}`} className="hover:underline">
+                {phone}
               </a>
             </div>
             <div className="flex items-center space-x-2">
               <Mail className="h-4 w-4 animate-bounce hover:animate-pulse" />
-              <a href={`mailto:${t("email")}`} className="hover:underline">
-                {t("email")}
+              <a href={`mailto:${email}`} className="hover:underline">
+                {email}
               </a>
             </div>
           </div>
           <div className="flex items-center space-x-2">
-            <span className="text-xs opacity-75">Diplomatic Mission</span>
+            <span className="text-xs opacity-75">{missionText}</span>
           </div>
         </div>
       </div>
@@ -78,36 +103,15 @@ export default function Header() {
             </div>
 
             <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
-              <button
-                onClick={() => scrollToSection("home")}
-                className="text-foreground hover:text-primary transition-colors duration-200 hover:scale-105 transform"
-              >
-                {t("home")}
-              </button>
-              <button
-                onClick={() => scrollToSection("diplomatic")}
-                className="text-foreground hover:text-primary transition-colors duration-200 hover:scale-105 transform"
-              >
-                {t("diplomaticExcellence")}
-              </button>
-              <button
-                onClick={() => scrollToSection("consular")}
-                className="text-foreground hover:text-primary transition-colors duration-200 hover:scale-105 transform"
-              >
-                {t("consularServices")}
-              </button>
-              <button
-                onClick={() => scrollToSection("gallery")}
-                className="text-foreground hover:text-primary transition-colors duration-200 hover:scale-105 transform"
-              >
-                {t("gallery")}
-              </button>
-              <button
-                onClick={() => scrollToSection("contact")}
-                className="text-foreground hover:text-primary transition-colors duration-200 hover:scale-105 transform"
-              >
-                {t("contact")}
-              </button>
+              {navigationItems.map((item) => (
+                <button
+                  key={item.sectionId}
+                  onClick={() => scrollToSection(item.sectionId)}
+                  className="text-foreground hover:text-primary transition-colors duration-200 hover:scale-105 transform"
+                >
+                  {item.label}
+                </button>
+              ))}
             </nav>
 
             <div className="hidden md:flex items-center space-x-4">
@@ -132,36 +136,15 @@ export default function Header() {
           {isMenuOpen && (
             <div className="md:hidden bg-card border-t border-border animate-fade-in-up shadow-lg">
               <nav className="flex flex-col space-y-4 p-4">
-                <button
-                  onClick={() => scrollToSection("home")}
-                  className="text-left text-foreground hover:text-primary transition-colors duration-200 py-2 hover:bg-muted rounded-md px-2"
-                >
-                  {t("home")}
-                </button>
-                <button
-                  onClick={() => scrollToSection("diplomatic")}
-                  className="text-left text-foreground hover:text-primary transition-colors duration-200 py-2 hover:bg-muted rounded-md px-2"
-                >
-                  {t("diplomaticExcellence")}
-                </button>
-                <button
-                  onClick={() => scrollToSection("consular")}
-                  className="text-left text-foreground hover:text-primary transition-colors duration-200 py-2 hover:bg-muted rounded-md px-2"
-                >
-                  {t("consularServices")}
-                </button>
-                <button
-                  onClick={() => scrollToSection("gallery")}
-                  className="text-left text-foreground hover:text-primary transition-colors duration-200 py-2 hover:bg-muted rounded-md px-2"
-                >
-                  {t("gallery")}
-                </button>
-                <button
-                  onClick={() => scrollToSection("contact")}
-                  className="text-left text-foreground hover:text-primary transition-colors duration-200 py-2 hover:bg-muted rounded-md px-2"
-                >
-                  {t("contact")}
-                </button>
+                {navigationItems.map((item) => (
+                  <button
+                    key={item.sectionId}
+                    onClick={() => scrollToSection(item.sectionId)}
+                    className="text-left text-foreground hover:text-primary transition-colors duration-200 py-2 hover:bg-muted rounded-md px-2"
+                  >
+                    {item.label}
+                  </button>
+                ))}
                 <div className="border-t border-border pt-4 mt-4 space-y-2">
                   <div className="px-2 pt-2">
                     <LanguageSwitcher />

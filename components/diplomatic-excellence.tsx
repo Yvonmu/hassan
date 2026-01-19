@@ -17,7 +17,26 @@ import {
 } from "lucide-react";
 import { useTranslation } from "@/hooks/use-translation";
 
-export default function DiplomaticExcellence() {
+interface DiplomaticExcellenceProps {
+  data?: {
+    title?: string;
+    description?: string;
+    competencies?: Array<{ name: string; value: number }>;
+    activities?: Array<{ title: string; description: string; icon: string }>;
+    responsibilities?: string[];
+  } | null;
+}
+
+const iconMap: Record<string, any> = {
+  Users,
+  Globe,
+  Award,
+  Briefcase,
+  Languages,
+  Handshake,
+};
+
+export default function DiplomaticExcellence({ data }: DiplomaticExcellenceProps) {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const { t } = useTranslation();
@@ -39,14 +58,19 @@ export default function DiplomaticExcellence() {
     return () => observer.disconnect();
   }, []);
 
-  const competencies = [
+  const competencies = data?.competencies || [
     { name: t("competency1"), value: 95 },
     { name: t("competency2"), value: 92 },
     { name: t("competency3"), value: 88 },
     { name: t("competency4"), value: 90 },
     { name: t("competency5"), value: 85 },
   ];
-  const activities = [
+  
+  const activities = data?.activities?.map(activity => ({
+    icon: iconMap[activity.icon] || Briefcase,
+    title: activity.title,
+    description: activity.description,
+  })) || [
     {
       icon: Users,
       title: t("activity1_name"),
@@ -74,7 +98,7 @@ export default function DiplomaticExcellence() {
     },
   ];
 
-  const responsibilities = [
+  const responsibilities = data?.responsibilities || [
     t("strategicPlanning"),
     t("treatyNegotiation"),
     t("crossCulturalCommunication"),
