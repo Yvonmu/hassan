@@ -6,7 +6,14 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: {
+          DEFAULT: '#0891b2',
+          foreground: '#ffffff',
+        },
+      },
+    },
   },
   plugins: [],
 }

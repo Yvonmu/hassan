@@ -75,7 +75,8 @@ export const queries = {
       rating,
       category,
       link,
-      "imageUrl": image.asset->url
+      imageUrl,
+      image
     }
   }`,
   
@@ -89,7 +90,8 @@ export const queries = {
       rating,
       category,
       link,
-      "imageUrl": image.asset->url
+      imageUrl,
+      image
     }
   }`,
   
@@ -106,7 +108,8 @@ export const queries = {
       location,
       buttonLink,
       link,
-      "imageUrl": image.asset->url
+      imageUrl,
+      image
     }
   }`,
   

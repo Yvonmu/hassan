@@ -1,6 +1,7 @@
 // PostCSS config for Tailwind CSS v3
-export default {
+module.exports = {
   plugins: {
+    'postcss-import': {},
     tailwindcss: {},
     autoprefixer: {},
   },

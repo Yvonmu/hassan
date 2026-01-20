@@ -17,6 +17,7 @@ export default defineType({
             { name: 'location', type: 'string', title: 'Location' },
             { name: 'description', type: 'text', title: 'Description' },
             { name: 'image', type: 'image', title: 'Image', options: { hotspot: true } },
+            { name: 'imageUrl', type: 'string', title: 'Image URL', description: 'Direct image URL path (e.g., /images/photo.jpg)' },
             { name: 'rating', type: 'number', title: 'Rating' },
             { name: 'category', type: 'string', title: 'Category' },
             { name: 'link', type: 'url', title: 'External Link' },

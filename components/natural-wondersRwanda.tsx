@@ -56,117 +56,193 @@ export default function NaturalWondersRwanda({ data }: NaturalWondersRwandaProps
     return () => observer.disconnect();
   }, []);
 
-const wonders = data?.wonders || [
-  {
-    title: t("wonders.volcanoesNationalParkTitle"),
-    location: t("wonders.volcanoesNationalParkLocation"),
-    description: t("wonders.volcanoesNationalParkDescription"),
-    image: "/images/Gorillas-in-volcanoes-national-park2-1.jpeg",
-    imageUrl: "/images/Gorillas-in-volcanoes-national-park2-1.jpeg",
-    rating: 4.9,
-    category: t("wonders.nationalPark"),
-    link: "https://www.volcanoesnationalparkrwanda.com/",
-  },
-  {
-    title: t("wonders.nyungweForestTitle"),
-    location: t("wonders.nyungweForestLocation"),
-    description: t("wonders.nyungweForestDescription"),
-    image: "/images/nyungwe.jpg",
-    rating: 4.8,
-    category: t("wonders.rainforest"),
-    link: "https://www.nyungweforestnationalpark.org/",
-  },
-  {
-    title: t("wonders.akageraNationalParkTitle"),
-    location: t("wonders.akageraNationalParkLocation"),
-    description: t("wonders.akageraNationalParkDescription"),
-    image: "/images/akagera-safari-companies.jpg",
-    rating: 4.7,
-    category: t("wonders.safari"),
-    link: "https://www.akageranationalpark.org/",
-  },
-  {
-    title: t("wonders.lakeKivuTitle"),
-    location: t("wonders.lakeKivuLocation"),
-    description: t("wonders.lakeKivuDescription"),
-    image: "/images/lake0kivu.jpeg",
-    rating: 4.8,
-    category: t("wonders.lake"),
-    link: "https://visitrwanda.com/destinations/lake-kivu/",
-  },
-  {
-    title: t("wonders.kigaliGenocideMemorialTitle"),
-    location: t("wonders.kigaliGenocideMemorialLocation"),
-    description: t("wonders.kigaliGenocideMemorialDescription"),
-    image: "/images/memorial-genocide.webp",
-    rating: 4.9,
-    category: t("wonders.historicalSite"),
-    link: "https://kgm.rw/",
-  },
-  {
-    title: t("wonders.kigaliCityTitle"),
-    location: t("wonders.kigaliCityLocation"),
-    description: t("wonders.kigaliCityDescription"),
-    image: "/images/kigali.png",
-    rating: 4.6,
-    category: t("wonders.cityExperience"),
-    link: "https://www.kigalicity.gov.rw/",
-  },
-  {
-    title: t("wonders.gishwatiMukuraTitle"),
-    location: t("wonders.gishwatiMukuraLocation"),
-    description: t("wonders.gishwatiMukuraDescription"),
-    image: "/images/gishwati-mukura-national-park.jpeg",
-    rating: 4.7,
-    category: t("wonders.natureReserve"),
-    link: "https://visitrwanda.com/destinations/gishwati-mukura-national-park-2/",
-  },
-  // New additions:
-  {
-    title: t("wonders.musanzeCavesTitle"),
-    location: t("wonders.musanzeCavesLocation"),
-    description: t("wonders.musanzeCavesDescription"),
-    image: "/images/musanze-caves1.jpeg",
-    rating: 4.5,
-    category: t("wonders.geologicalSite"),
-    link: "https://www.volcanoesparkrwanda.org/information/the-musanze-cave/",
-  },
-  {
-    title: t("wonders.ethnographicMuseumTitle"),
-    location: t("wonders.ethnographicMuseumLocation"),
-    description: t("wonders.ethnographicMuseumDescription"),
-    image: "/images/ethnographic-museum-huye.jpeg",
-    rating: 4.6,
-    category: t("wonders.museum"),
-    link: "https://visitrwanda.com/interests/ethnographic-museum/",
-  },
-  {
-    title: t("wonders.kingsPalaceNyanzaTitle"),
-    location: t("wonders.kingsPalaceNyanzaLocation"),
-    description: t("wonders.kingsPalaceNyanzaDescription"),
-    image: "/images/kings-palace-nyanza.jpeg",
-    rating: 4.4,
-    category: t("wonders.historicalSite"),
-    link: "https://visitrwanda.com/interests/kings-palace/",
-  },
-  {
-    title: t("wonders.kandtHouseMuseumTitle"),
-    location: t("wonders.kandtHouseMuseumLocation"),
-    description: t("wonders.kandtHouseMuseumDescription"),
-    image: "/images/kandt-house-museum.jpeg",
-    rating: 4.3,
-    category: t("wonders.museum"),
-    link: "https://visitrwanda.com/interests/kandt-house-museum/",
-  },
-];
+  // Default wonders array with images
+  const defaultWonders = [
+        {
+          title: t("wonders.volcanoesNationalParkTitle"),
+          location: t("wonders.volcanoesNationalParkLocation"),
+          description: t("wonders.volcanoesNationalParkDescription"),
+          image: "/images/Gorillas-in-volcanoes-national-park2-1.jpeg",
+          imageUrl: "/images/Gorillas-in-volcanoes-national-park2-1.jpeg",
+          rating: 4.9,
+          category: t("wonders.nationalPark"),
+          link: "https://www.volcanoesnationalparkrwanda.com/",
+        },
+        {
+          title: t("wonders.nyungweForestTitle"),
+          location: t("wonders.nyungweForestLocation"),
+          description: t("wonders.nyungweForestDescription"),
+          image: "/images/nyungwe.jpg",
+          imageUrl: "/images/nyungwe.jpg",
+          rating: 4.8,
+          category: t("wonders.rainforest"),
+          link: "https://www.nyungweforestnationalpark.org/",
+        },
+        {
+          title: t("wonders.akageraNationalParkTitle"),
+          location: t("wonders.akageraNationalParkLocation"),
+          description: t("wonders.akageraNationalParkDescription"),
+          image: "/images/akagera-safari-companies.jpg",
+          imageUrl: "/images/akagera-safari-companies.jpg",
+          rating: 4.7,
+          category: t("wonders.safari"),
+          link: "https://www.akageranationalpark.org/",
+        },
+        {
+          title: t("wonders.lakeKivuTitle"),
+          location: t("wonders.lakeKivuLocation"),
+          description: t("wonders.lakeKivuDescription"),
+          image: "/images/lake0kivu.jpeg",
+          imageUrl: "/images/lake0kivu.jpeg",
+          rating: 4.8,
+          category: t("wonders.lake"),
+          link: "https://visitrwanda.com/destinations/lake-kivu/",
+        },
+        {
+          title: t("wonders.kigaliGenocideMemorialTitle"),
+          location: t("wonders.kigaliGenocideMemorialLocation"),
+          description: t("wonders.kigaliGenocideMemorialDescription"),
+          image: "/images/memorial-genocide.webp",
+          imageUrl: "/images/memorial-genocide.webp",
+          rating: 4.9,
+          category: t("wonders.historicalSite"),
+          link: "https://kgm.rw/",
+        },
+        {
+          title: t("wonders.kigaliCityTitle"),
+          location: t("wonders.kigaliCityLocation"),
+          description: t("wonders.kigaliCityDescription"),
+          image: "/images/kigali.png",
+          imageUrl: "/images/kigali.png",
+          rating: 4.6,
+          category: t("wonders.cityExperience"),
+          link: "https://www.kigalicity.gov.rw/",
+        },
+        {
+          title: t("wonders.gishwatiMukuraTitle"),
+          location: t("wonders.gishwatiMukuraLocation"),
+          description: t("wonders.gishwatiMukuraDescription"),
+          image: "/images/gishwati-mukura-national-park.jpeg",
+          imageUrl: "/images/gishwati-mukura-national-park.jpeg",
+          rating: 4.7,
+          category: t("wonders.natureReserve"),
+          link: "https://visitrwanda.com/destinations/gishwati-mukura-national-park-2/",
+        },
+        {
+          title: t("wonders.musanzeCavesTitle"),
+          location: t("wonders.musanzeCavesLocation"),
+          description: t("wonders.musanzeCavesDescription"),
+          image: "/images/musanze-caves1.jpeg",
+          imageUrl: "/images/musanze-caves1.jpeg",
+          rating: 4.5,
+          category: t("wonders.geologicalSite"),
+          link: "https://www.volcanoesparkrwanda.org/information/the-musanze-cave/",
+        },
+        {
+          title: t("wonders.ethnographicMuseumTitle"),
+          location: t("wonders.ethnographicMuseumLocation"),
+          description: t("wonders.ethnographicMuseumDescription"),
+          image: "/images/ethnographic-museum-huye.jpeg",
+          imageUrl: "/images/ethnographic-museum-huye.jpeg",
+          rating: 4.6,
+          category: t("wonders.museum"),
+          link: "https://visitrwanda.com/interests/ethnographic-museum/",
+        },
+        {
+          title: t("wonders.kingsPalaceNyanzaTitle"),
+          location: t("wonders.kingsPalaceNyanzaLocation"),
+          description: t("wonders.kingsPalaceNyanzaDescription"),
+          image: "/images/kings-palace-nyanza.jpeg",
+          imageUrl: "/images/kings-palace-nyanza.jpeg",
+          rating: 4.4,
+          category: t("wonders.historicalSite"),
+          link: "https://visitrwanda.com/interests/kings-palace/",
+        },
+        {
+          title: t("wonders.kandtHouseMuseumTitle"),
+          location: t("wonders.kandtHouseMuseumLocation"),
+          description: t("wonders.kandtHouseMuseumDescription"),
+          image: "/images/kandt-house-museum.jpeg",
+          imageUrl: "/images/kandt-house-museum.jpeg",
+          rating: 4.3,
+          category: t("wonders.museum"),
+          link: "https://visitrwanda.com/interests/kandt-house-museum/",
+        },
+  ];
 
+  // Process wonders data to ensure all have imageUrl
+  const processWonders = (wondersData?: Array<any>) => {
+    // If no Sanity data, return defaults
+    if (!wondersData || wondersData.length === 0) {
+      return defaultWonders;
+    }
 
+    // Merge Sanity data with defaults, using default images when Sanity doesn't have them
+    return wondersData.map((wonder) => {
+      // Find matching default wonder by title
+      const defaultWonder = defaultWonders.find(
+        (dw) => dw.title.toLowerCase() === wonder.title?.toLowerCase()
+      );
+
+      let imageUrl = wonder.imageUrl;
+      let image = wonder.image;
+
+      // If imageUrl is null or placeholder, try to get it from image field or use default
+      const isPlaceholder = !imageUrl || imageUrl === "/placeholder.svg" || imageUrl === "placeholder.svg" || imageUrl === null;
+      
+      if (isPlaceholder) {
+        // First try: If image is a string path, use it directly
+        if (wonder.image && typeof wonder.image === 'string') {
+          imageUrl = wonder.image;
+          image = wonder.image;
+        }
+        // Second try: If image is a Sanity image object, convert it to URL
+        else if (wonder.image && typeof wonder.image === 'object' && wonder.image !== null) {
+          try {
+            const sanityImage = wonder.image as any;
+            if (sanityImage.asset || sanityImage._ref || sanityImage._type === 'image') {
+              imageUrl = urlFor(wonder.image).width(800).height(600).url();
+              image = wonder.image; // Keep the original object
+            }
+          } catch (e) {
+            console.error('Error generating image URL for', wonder.title, ':', e);
+          }
+        }
+        
+        // Third try: Use default wonder's image if it exists
+        if ((!imageUrl || imageUrl === null) && defaultWonder) {
+          imageUrl = defaultWonder.imageUrl;
+          image = defaultWonder.image;
+        }
+        
+        // Final fallback: placeholder
+        if (!imageUrl || imageUrl === null) {
+          imageUrl = "/placeholder.svg";
+          image = "/placeholder.svg";
+        }
+      }
+
+      return {
+        ...wonder,
+        imageUrl: imageUrl,
+        image: image || imageUrl,
+      };
+    });
+  };
+
+console.log("==================================")
+console.log("Raw data from Sanity:", data?.wonders);
+const wonders = processWonders(data?.wonders);
+console.log("Processed wonders:", wonders);
+console.log("==================================")
   const handleExploreMore = (wonder: string) => {
     // Simulate explore more functionality
     window.open(`${wonder.toLowerCase().replace(/\s+/g, "-")}`, "_blank");
   };
 
   const handleImageClick = (index: number) => {
+    console.log("Image clicked, index:", index);
+    console.log("Wonder data:", wonders[index]);
     setSelectedImage(index);
   };
 
@@ -246,13 +322,39 @@ const wonders = data?.wonders || [
                   <div className="relative overflow-hidden aspect-[4/3]">
                     <img
                       src={
-                        wonder.imageUrl ||
-                        (wonder.image ? urlFor(wonder.image).width(800).height(600).url() : null) ||
-                        "/placeholder.svg"
+                        (() => {
+                          console.log("Card image render for:", wonder.title, "imageUrl:", wonder.imageUrl, "image:", wonder.image);
+                          // Priority 1: Use imageUrl if it exists and is not empty
+                          if (wonder.imageUrl) {
+                            return wonder.imageUrl;
+                          }
+                          // Priority 2: If image is a string path, use it directly
+                          if (wonder.image && typeof wonder.image === 'string') {
+                            return wonder.image;
+                          }
+                          // Priority 3: If image is a Sanity image object, use urlFor
+                          if (wonder.image && typeof wonder.image === 'object') {
+                            try {
+                              return urlFor(wonder.image).width(800).height(600).url();
+                            } catch (e) {
+                              console.error('Error generating image URL:', e);
+                              return "/placeholder.svg";
+                            }
+                          }
+                          // Fallback: placeholder
+                          return "/placeholder.svg";
+                        })()
                       }
                       alt={wonder.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 cursor-pointer"
                       onClick={() => handleImageClick(index)}
+                      onError={(e) => {
+                        // If image fails to load, use placeholder
+                        const target = e.target as HTMLImageElement;
+                        if (target.src !== window.location.origin + "/placeholder.svg") {
+                          target.src = "/placeholder.svg";
+                        }
+                      }}
                     />
 
                     {/* Overlay */}
@@ -311,12 +413,40 @@ const wonders = data?.wonders || [
             <div className="relative max-w-4xl max-h-full">
               <img
                 src={
-                  wonders[selectedImage].imageUrl ||
-                  (wonders[selectedImage].image ? urlFor(wonders[selectedImage].image).width(1200).height(800).url() : null) ||
-                  "/placeholder.svg"
+                  (() => {
+                    const img = wonders[selectedImage];
+                    console.log("==================================")
+                    console.log(img)
+                    // Priority 1: Use imageUrl if it exists and is not empty
+                    if (img.imageUrl) {
+                      return img.imageUrl;
+                    }
+                    // Priority 2: If image is a string path, use it directly
+                    if (img.image && typeof img.image === 'string') {
+                      return img.image;
+                    }
+                    // Priority 3: If image is a Sanity image object, use urlFor
+                    if (img.image && typeof img.image === 'object') {
+                      try {
+                        return urlFor(img.image).width(1200).height(800).url();
+                      } catch (e) {
+                        console.error('Error generating image URL:', e);
+                        return "/placeholder.svg";
+                      }
+                    }
+                    // Fallback: placeholder
+                    return "/placeholder.svg";
+                  })()
                 }
                 alt={wonders[selectedImage].title}
                 className="max-w-full max-h-full object-contain rounded-lg"
+                onError={(e) => {
+                  // If image fails to load, use placeholder
+                  const target = e.target as HTMLImageElement;
+                  if (target.src !== window.location.origin + "/placeholder.svg") {
+                    target.src = "/placeholder.svg";
+                  }
+                }}
               />
               <button
                 onClick={closeLightbox}

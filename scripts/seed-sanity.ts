@@ -423,28 +423,99 @@ async function seedContent() {
         _type: 'naturalWonders',
         wonders: [
           {
-            title: 'Lake Assal',
-            location: 'Djibouti',
-            description: 'The lowest point in Africa and the saltiest lake outside Antarctica.',
-            rating: 5,
-            category: 'Natural Wonder',
-            link: 'https://en.wikipedia.org/wiki/Lake_Assal',
+            title: 'Moucha & Maskali Islands',
+            location: 'Gulf of Tadjoura, Djibouti',
+            description: 'The islands of Moucha and Maskali are located in the Gulf of Tadjoura in Djibouti. These coral islands are lush oases with mangroves, colorful algae, coral gardens, and rich marine fauna including whale sharks, rays, turtles, and seabirds.',
+            rating: 4.5,
+            category: 'Volcanic Site',
+            link: 'https://archiqoo.com/unesco/unesco_natural_sub_lists.php?uw_country=djibouti&subsite=moucha_maskali_islands',
+            imageUrl: '/images/Moucha_Island.jpg',
           },
           {
-            title: 'Gulf of Tadjoura',
+            title: 'Lake Assal, on the peaceful lands',
+            location: 'Tadjoura Region, Djibouti',
+            description: 'Lake Assal lies 157m below sea level, making it the lowest point in Africa. Known for its extreme salinity and unique geological formations, it is a must-see site for scientists and travelers.',
+            rating: 4.8,
+            category: 'Natural Wonder',
+            link: 'https://guide.visitdjibouti.dj/le-lac-assal-sur-les-terres-apaisees/',
+            imageUrl: '/images/assal_5672-e1552151713486.jpg',
+          },
+          {
+            title: 'A Country Where Mixing is the Barycentre',
             location: 'Djibouti',
-            description: 'A beautiful gulf known for its pristine waters and marine life.',
-            rating: 4,
-            category: 'Marine',
-            link: 'https://en.wikipedia.org/wiki/Gulf_of_Tadjoura',
+            description: 'Djiboutian culture reflects centuries of trade and nomadic heritage. Rich traditions include songs, poetry, and dances blending epic and lyrical styles.',
+            rating: 4.9,
+            category: 'Geological Site',
+            link: 'https://guide.visitdjibouti.dj/un-pays-ou-le-brassage-est-le-barycentre/',
+            imageUrl: '/images/culture-9-e1551264296617.jpg',
+          },
+          {
+            title: 'Lake Abbé, Lunar Landscapes',
+            location: 'Southwest Djibouti, near Ethiopian border',
+            description: 'Lake Abbé\'s limestone chimneys and magical sunsets create a surreal lunar-like landscape. A breathtaking natural wonder of East Africa.',
+            rating: 4.7,
+            category: 'National Park',
+            link: 'https://guide.visitdjibouti.dj/le-lac-abbe-des-paysages-lunaires/',
+            imageUrl: '/images/lacabbe-16.jpg',
+          },
+          {
+            title: 'Archaeological Discoveries',
+            location: 'Balho, Djibouti',
+            description: 'Prehistoric rock art and archaeological remains near Balho offer a glimpse into Djibouti\'s ancient past.',
+            rating: 4.6,
+            category: 'Urban Landmark',
+            link: 'https://guide.visitdjibouti.dj/les-decouvertes-archeologiques/',
+            imageUrl: '/images/balho.jpg',
+          },
+          {
+            title: 'Obock',
+            location: 'Red Sea Coast, Djibouti',
+            description: 'Obock, the first French settlement in Djibouti, features colonial architecture and rich cultural heritage.',
+            rating: 4.9,
+            category: 'Geological Site',
+            link: 'https://guide.visitdjibouti.dj/obock/',
+            imageUrl: '/images/obock.jpg',
+          },
+          {
+            title: 'Tadjoura',
+            location: 'Northern Djibouti',
+            description: 'Tadjoura, one of Djibouti\'s oldest towns, is known for its whitewashed houses and historic mosques.',
+            rating: 4.7,
+            category: 'National Park',
+            link: 'https://www.britannica.com/place/Djibouti',
+            imageUrl: '/images/tadjoura.png',
+          },
+          {
+            title: 'Ghoubbet al-Kharab',
+            location: 'Southern Gulf of Tadjoura',
+            description: 'Also called the Devil\'s Cauldron, Ghoubbet al-Kharab has steep volcanic cliffs, rich marine life, and excellent diving spots.',
+            rating: 4.6,
+            category: 'Urban Landmark',
+            link: 'https://en.wikipedia.org/wiki/Ghoubbet-el-Kharab',
+            imageUrl: '/images/gouk.png',
+          },
+          {
+            title: 'Day Forest National Park',
+            location: 'Godda Mountains, Djibouti',
+            description: 'Djibouti\'s only national park, with rare juniper forests, wildlife, and hiking trails in cooler highland climates.',
+            rating: 4.8,
+            category: 'Marine Paradise',
+            link: 'https://en.wikipedia.org/wiki/Day_Forest_National_Park',
+            imageUrl: '/images/Day Forest National Park.png',
           },
         ],
       }
       
       const existing = await client.fetch(`*[_type == "naturalWonders" && _id == "naturalWonders.main"][0]`)
       if (existing) {
-        await client.patch('naturalWonders.main').set(naturalWondersData).commit()
+        // When patching, unset the old wonders array and set the new one with all fields including imageUrl
+        await client.patch('naturalWonders.main')
+          .unset(['wonders'])
+          .set({ wonders: naturalWondersData.wonders })
+          .commit()
         console.log('✅ Natural Wonders (Djibouti) updated:', 'naturalWonders.main')
+        console.log('   Wonders with imageUrl:', naturalWondersData.wonders.length)
+        console.log('   First wonder imageUrl:', naturalWondersData.wonders[0]?.imageUrl)
       } else {
         await client.create({ _id: 'naturalWonders.main', ...naturalWondersData })
         console.log('✅ Natural Wonders (Djibouti) created and published:', 'naturalWonders.main')
@@ -466,6 +537,7 @@ async function seedContent() {
             rating: 5,
             category: 'Wildlife',
             link: 'https://www.visitrwanda.com/destinations/volcanoes-national-park/',
+            imageUrl: '/images/Gorillas-in-volcanoes-national-park2-1.jpeg',
           },
           {
             title: 'Nyungwe Forest',
@@ -474,6 +546,88 @@ async function seedContent() {
             rating: 5,
             category: 'Forest',
             link: 'https://www.visitrwanda.com/destinations/nyungwe-national-park/',
+            imageUrl: '/images/nyungwe.jpg',
+          },
+          {
+            title: 'Akagera National Park',
+            location: 'Eastern Rwanda',
+            description: 'Famous for the Big Five and classic African safaris with lakes, savannahs, and woodlands.',
+            rating: 4.7,
+            category: 'Safari',
+            link: 'https://www.visitrwanda.com/destinations/akagera-national-park/',
+            imageUrl: '/images/akagera-safari-companies.jpg',
+          },
+          {
+            title: 'Lake Kivu',
+            location: 'Western Rwanda',
+            description: 'One of Africa\'s great lakes, perfect for water activities and relaxation.',
+            rating: 4.8,
+            category: 'Lake',
+            link: 'https://www.visitrwanda.com/destinations/lake-kivu/',
+            imageUrl: '/images/lake0kivu.jpeg',
+          },
+          {
+            title: 'Kigali Genocide Memorial',
+            location: 'Kigali, Rwanda',
+            description: 'A place of remembrance and reflection on Rwanda\'s history.',
+            rating: 4.9,
+            category: 'Historical Site',
+            link: 'https://kgm.rw/',
+            imageUrl: '/images/memorial-genocide.webp',
+          },
+          {
+            title: 'Kigali City',
+            location: 'Kigali, Rwanda',
+            description: 'A vibrant and clean capital city with modern amenities and rich culture.',
+            rating: 4.6,
+            category: 'City Experience',
+            link: 'https://www.kigalicity.gov.rw/',
+            imageUrl: '/images/kigali.png',
+          },
+          {
+            title: 'Gishwati-Mukura National Park',
+            location: 'Western Rwanda',
+            description: 'A forest reserve protecting chimpanzees and other wildlife.',
+            rating: 4.7,
+            category: 'Nature Reserve',
+            link: 'https://www.visitrwanda.com/destinations/gishwati-mukura-national-park-2/',
+            imageUrl: '/images/gishwati-mukura-national-park.jpeg',
+          },
+          {
+            title: 'Musanze Caves',
+            location: 'Northern Rwanda',
+            description: 'Ancient caves formed by volcanic activity, now a popular tourist attraction.',
+            rating: 4.5,
+            category: 'Geological Site',
+            link: 'https://www.volcanoesparkrwanda.org/information/the-musanze-cave/',
+            imageUrl: '/images/musanze-caves1.jpeg',
+          },
+          {
+            title: 'Ethnographic Museum',
+            location: 'Huye, Rwanda',
+            description: 'Explore Rwanda\'s rich cultural heritage and traditions.',
+            rating: 4.6,
+            category: 'Museum',
+            link: 'https://www.visitrwanda.com/interests/ethnographic-museum/',
+            imageUrl: '/images/ethnographic-museum-huye.jpeg',
+          },
+          {
+            title: 'King\'s Palace Nyanza',
+            location: 'Nyanza, Rwanda',
+            description: 'A reconstructed traditional royal palace showcasing Rwanda\'s monarchical history.',
+            rating: 4.4,
+            category: 'Historical Site',
+            link: 'https://www.visitrwanda.com/interests/kings-palace/',
+            imageUrl: '/images/kings-palace-nyanza.jpeg',
+          },
+          {
+            title: 'Kandt House Museum',
+            location: 'Kigali, Rwanda',
+            description: 'The former residence of Richard Kandt, now a natural history museum.',
+            rating: 4.3,
+            category: 'Museum',
+            link: 'https://www.visitrwanda.com/interests/kandt-house-museum/',
+            imageUrl: '/images/kandt-house-museum.jpeg',
           },
         ],
       }
@@ -499,30 +653,48 @@ async function seedContent() {
         description: 'Stay updated with the latest news, events, and updates from the Consulate.',
         content: [
           {
-            title: 'Latest News',
-            description: 'Read about the latest diplomatic activities and consular services.',
+            title: 'ADI - Agence Djiboutienne d\'Information',
+            description: 'Stay informed with the latest news from Djibouti through the official news agency.',
             type: 'news',
             date: '2024-01-15',
-            location: 'Kigali',
-            buttonLink: 'Read More',
-            link: 'https://example.com/news',
+            location: 'Djibouti',
+            buttonLink: 'Visit adi.dj',
+            link: 'http://adi.dj/',
+            imageUrl: '/images/ea18ec7b42462a5d1315a85007aab2bc.jpg',
           },
           {
-            title: 'Upcoming Events',
-            description: 'Join us for cultural events and community gatherings.',
-            type: 'event',
+            title: 'La Nation Newspaper',
+            description: 'Read the leading Djiboutian newspaper for in-depth coverage of national and international news.',
+            type: 'news',
             date: '2024-02-20',
-            location: 'Kigali',
-            buttonLink: 'Learn More',
-            link: 'https://example.com/events',
+            location: 'Djibouti',
+            buttonLink: 'Visit lanation.dj',
+            link: 'http://lanation.dj/',
+            imageUrl: '/images/cce0e77259b77afb2c703c4275ec0a85.jpg',
+          },
+          {
+            title: 'RTD Television & Radio',
+            description: 'Watch and listen to RTD for comprehensive coverage of events, culture, and news from Djibouti.',
+            type: 'media',
+            date: '2024-03-10',
+            location: 'Djibouti',
+            buttonLink: 'Watch Live',
+            link: 'https://rtd.dj/',
+            imageUrl: '/images/live.png',
           },
         ],
       }
       
       const existing = await client.fetch(`*[_type == "stayConnected" && _id == "stayConnected.main"][0]`)
       if (existing) {
-        await client.patch('stayConnected.main').set(stayConnectedData).commit()
+        // When patching, unset the old content array and set the new one with all fields including imageUrl
+        await client.patch('stayConnected.main')
+          .unset(['content'])
+          .set({ content: stayConnectedData.content })
+          .commit()
         console.log('✅ Stay Connected updated:', 'stayConnected.main')
+        console.log('   Content items with imageUrl:', stayConnectedData.content.length)
+        console.log('   First item imageUrl:', stayConnectedData.content[0]?.imageUrl)
       } else {
         await client.create({ _id: 'stayConnected.main', ...stayConnectedData })
         console.log('✅ Stay Connected created and published:', 'stayConnected.main')

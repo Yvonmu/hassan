@@ -57,7 +57,8 @@ export default function NaturalWonders({ data }: NaturalWondersProps) {
     return () => observer.disconnect();
   }, []);
 
-  const wonders = data?.wonders || [
+  // Default wonders array with images
+  const defaultWonders = [
     {
       title: t("wonders.mouchaMaskaliTitle"),
       location: t("wonders.mouchaMaskaliLocation"),
@@ -73,6 +74,7 @@ export default function NaturalWonders({ data }: NaturalWondersProps) {
       location: t("wonders.lakeAssalLocation"),
       description: t("wonders.lakeAssalDescription"),
       image: "/images/assal_5672-e1552151713486.jpg",
+      imageUrl: "/images/assal_5672-e1552151713486.jpg",
       rating: 4.8,
       category: t("wonders.naturalWonder"),
       link: "https://guide.visitdjibouti.dj/le-lac-assal-sur-les-terres-apaisees/",
@@ -82,6 +84,7 @@ export default function NaturalWonders({ data }: NaturalWondersProps) {
       location: t("wonders.mixingCultureLocation"),
       description: t("wonders.mixingCultureDescription"),
       image: "/images/culture-9-e1551264296617.jpg",
+      imageUrl: "/images/culture-9-e1551264296617.jpg",
       rating: 4.9,
       category: t("wonders.geologicalSite"),
       link: "https://guide.visitdjibouti.dj/un-pays-ou-le-brassage-est-le-barycentre/",
@@ -91,6 +94,7 @@ export default function NaturalWonders({ data }: NaturalWondersProps) {
       location: t("wonders.lakeAbbeLocation"),
       description: t("wonders.lakeAbbeDescription"),
       image: "/images/lacabbe-16.jpg",
+      imageUrl: "/images/lacabbe-16.jpg",
       rating: 4.7,
       category: t("wonders.nationalPark"),
       link: "https://guide.visitdjibouti.dj/le-lac-abbe-des-paysages-lunaires/",
@@ -100,6 +104,7 @@ export default function NaturalWonders({ data }: NaturalWondersProps) {
       location: t("wonders.archaeologicalDiscoveriesLocation"),
       description: t("wonders.archaeologicalDiscoveriesDescription"),
       image: "/images/balho.jpg",
+      imageUrl: "/images/balho.jpg",
       rating: 4.6,
       category: t("wonders.urbanLandmark"),
       link: "https://guide.visitdjibouti.dj/les-decouvertes-archeologiques/",
@@ -109,6 +114,7 @@ export default function NaturalWonders({ data }: NaturalWondersProps) {
       location: t("wonders.obockLocation"),
       description: t("wonders.obockDescription"),
       image: "/images/obock.jpg",
+      imageUrl: "/images/obock.jpg",
       rating: 4.9,
       category: t("wonders.geologicalSite"),
       link: "https://guide.visitdjibouti.dj/obock/",
@@ -118,6 +124,7 @@ export default function NaturalWonders({ data }: NaturalWondersProps) {
       location: t("wonders.tadjouraLocation"),
       description: t("wonders.tadjouraDescription"),
       image: "/images/tadjoura.png",
+      imageUrl: "/images/tadjoura.png",
       rating: 4.7,
       category: t("wonders.nationalPark"),
       link: "https://www.britannica.com/place/Djibouti",
@@ -127,6 +134,7 @@ export default function NaturalWonders({ data }: NaturalWondersProps) {
       location: t("wonders.ghoubbetLocation"),
       description: t("wonders.ghoubbetDescription"),
       image: "/images/gouk.png",
+      imageUrl: "/images/gouk.png",
       rating: 4.6,
       category: t("wonders.urbanLandmark"),
       link: "https://en.wikipedia.org/wiki/Ghoubbet-el-Kharab",
@@ -136,12 +144,97 @@ export default function NaturalWonders({ data }: NaturalWondersProps) {
       location: t("wonders.dayForestLocation"),
       description: t("wonders.dayForestDescription"),
       image: "/images/Day Forest National Park.png",
+      imageUrl: "/images/Day Forest National Park.png",
       rating: 4.8,
       category: t("wonders.marineParadise"),
       link: "https://en.wikipedia.org/wiki/Day_Forest_National_Park",
     },
   ];
 
+  // Process wonders data to ensure all have imageUrl
+  const processWonders = (wondersData?: Array<any>) => {
+    // If no Sanity data, return defaults
+    if (!wondersData || wondersData.length === 0) {
+      return defaultWonders;
+    }
+
+    // Merge Sanity data with defaults, using default images when Sanity doesn't have them
+    return wondersData.map((wonder) => {
+      let imageUrl = wonder.imageUrl;
+      let image = wonder.image;
+
+      // Normalize titles for matching (remove accents, lowercase)
+      const normalizeTitle = (title: string) => {
+        return title?.toLowerCase()
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '') // Remove accents
+          .trim();
+      };
+
+      // Find matching default wonder by normalized title
+      const wonderTitleNormalized = normalizeTitle(wonder.title || '');
+      const defaultWonder = defaultWonders.find((dw) => {
+        const defaultTitleNormalized = normalizeTitle(dw.title || '');
+        return defaultTitleNormalized === wonderTitleNormalized ||
+               defaultTitleNormalized.includes(wonderTitleNormalized) ||
+               wonderTitleNormalized.includes(defaultTitleNormalized);
+      });
+
+      // If imageUrl is null, empty, or placeholder, try to get it from image field or use default
+      const isPlaceholder = !imageUrl || 
+                            imageUrl === "" || 
+                            imageUrl === "/placeholder.svg" || 
+                            imageUrl === "placeholder.svg" || 
+                            imageUrl === null || 
+                            imageUrl === undefined;
+      
+      if (isPlaceholder) {
+        // First try: If image is a string path, use it directly (and not placeholder)
+        if (wonder.image && typeof wonder.image === 'string' && wonder.image !== '/placeholder.svg' && wonder.image !== 'placeholder.svg') {
+          imageUrl = wonder.image;
+          image = wonder.image;
+        }
+        // Second try: If image is a Sanity image object, convert it to URL
+        else if (wonder.image && typeof wonder.image === 'object' && wonder.image !== null) {
+          try {
+            const sanityImage = wonder.image as any;
+            if (sanityImage.asset || sanityImage._ref || sanityImage._type === 'image') {
+              imageUrl = urlFor(wonder.image).width(800).height(600).url();
+              image = wonder.image; // Keep the original object
+            }
+          } catch (e) {
+            console.error('Error generating image URL for', wonder.title, ':', e);
+          }
+        }
+        
+        // Third try: Use default wonder's image if it exists
+        if ((!imageUrl || imageUrl === "/placeholder.svg") && defaultWonder) {
+          imageUrl = defaultWonder.imageUrl;
+          image = defaultWonder.image;
+          console.log('Using default image for', wonder.title, ':', imageUrl);
+        }
+        
+        // Final fallback: placeholder
+        if (!imageUrl || imageUrl === "/placeholder.svg") {
+          imageUrl = "/placeholder.svg";
+          image = "/placeholder.svg";
+        }
+      }
+
+      return {
+        ...wonder,
+        imageUrl: imageUrl,
+        image: image || imageUrl,
+      };
+    });
+  };
+
+const wonders = processWonders(data?.wonders);
+console.log("==================================")
+console.log("Raw Sanity Data:", data?.wonders);
+console.log("Djibouti Wonders (Processed):", wonders);
+console.log("Default Wonders:", defaultWonders);
+console.log("==================================")
   const handleExploreMore = (wonder: string) => {
     // Simulate explore more functionality
     window.open(`${wonder.toLowerCase().replace(/\s+/g, "-")}`, "_blank");
