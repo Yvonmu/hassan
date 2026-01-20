@@ -78,7 +78,6 @@ export default function StayConnected({ data }: StayConnectedProps) {
   {
     title: t("adiTitle"), // "ADI - Agence Djiboutienne d'Information"
     description: t("adiDescription"), 
-    image: "/images/ea18ec7b42462a5d1315a85007aab2bc.jpg",
     imageUrl: "/images/ea18ec7b42462a5d1315a85007aab2bc.jpg",
     type: t("culturalFestivalType"),
     date: t("culturalFestivalDate"),
@@ -89,7 +88,7 @@ export default function StayConnected({ data }: StayConnectedProps) {
   {
     title: t("laNationTitle"), // "La Nation Newspaper"
     description: t("laNationDescription"),
-    image: "/images/cce0e77259b77afb2c703c4275ec0a85.jpg",
+    imageUrl: "/images/cce0e77259b77afb2c703c4275ec0a85.jpg",
     type: t("economicSummitType"),
     date: t("economicSummitDate"),
     location: t("economicSummitLocation"),
@@ -99,7 +98,7 @@ export default function StayConnected({ data }: StayConnectedProps) {
   {
     title: t("rtdTitle"), // "RTD Television & Radio"
     description: t("rtdDescription"),
-    image: "/images/live.png",
+    imageUrl: "/images/live.png",
     type: t("marineProjectType"),
     date: t("marineProjectDate"),
     location: t("marineProjectLocation"),
