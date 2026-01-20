@@ -230,11 +230,9 @@ export default function NaturalWondersRwanda({ data }: NaturalWondersRwandaProps
     });
   };
 
-console.log("==================================")
-console.log("Raw data from Sanity:", data?.wonders);
+  
 const wonders = processWonders(data?.wonders);
-console.log("Processed wonders:", wonders);
-console.log("==================================")
+
   const handleExploreMore = (wonder: string) => {
     // Simulate explore more functionality
     window.open(`${wonder.toLowerCase().replace(/\s+/g, "-")}`, "_blank");
@@ -415,8 +413,6 @@ console.log("==================================")
                 src={
                   (() => {
                     const img = wonders[selectedImage];
-                    console.log("==================================")
-                    console.log(img)
                     // Priority 1: Use imageUrl if it exists and is not empty
                     if (img.imageUrl) {
                       return img.imageUrl;

@@ -230,11 +230,7 @@ export default function NaturalWonders({ data }: NaturalWondersProps) {
   };
 
 const wonders = processWonders(data?.wonders);
-console.log("==================================")
-console.log("Raw Sanity Data:", data?.wonders);
-console.log("Djibouti Wonders (Processed):", wonders);
-console.log("Default Wonders:", defaultWonders);
-console.log("==================================")
+
   const handleExploreMore = (wonder: string) => {
     // Simulate explore more functionality
     window.open(`${wonder.toLowerCase().replace(/\s+/g, "-")}`, "_blank");
