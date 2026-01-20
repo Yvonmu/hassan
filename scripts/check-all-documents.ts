@@ -1,9 +1,23 @@
 import { createClient } from '@sanity/client'
-import * as dotenv from 'dotenv'
+import { readFileSync } from 'fs'
 import { resolve } from 'path'
 
-// Load environment variables
-dotenv.config({ path: resolve(process.cwd(), '.env.local') })
+// Load environment variables from .env.local manually
+try {
+  const envFile = readFileSync(resolve(process.cwd(), '.env.local'), 'utf-8')
+  envFile.split('\n').forEach(line => {
+    const match = line.match(/^([^#=]+)=(.*)$/)
+    if (match) {
+      const key = match[1].trim()
+      const value = match[2].trim()
+      if (!process.env[key]) {
+        process.env[key] = value
+      }
+    }
+  })
+} catch (error) {
+  // .env.local might not exist, that's okay
+}
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'ik1g399m'
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production'

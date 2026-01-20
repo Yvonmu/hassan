@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
 
     const contentType = body?._type
 
-    if (!contentType) {
+    if (!contentType || typeof contentType !== 'string') {
       return NextResponse.json({ message: 'Bad Request' }, { status: 400 })
     }
 
@@ -24,19 +24,19 @@ export async function POST(req: NextRequest) {
     revalidatePath('/contact', 'page')
     
     // Revalidate by content type tags
-    revalidateTag(contentType)
-    revalidateTag('heroSection')
-    revalidateTag('globalSettings')
-    revalidateTag('seoMetadata')
-    revalidateTag('service')
-    revalidateTag('diplomaticExcellence')
-    revalidateTag('jurisdictionSection')
-    revalidateTag('naturalWonders')
-    revalidateTag('naturalWondersRwanda')
-    revalidateTag('stayConnected')
-    revalidateTag('socialFeedsSection')
-    revalidateTag('consularExcellence')
-    revalidateTag('headerSettings')
+    revalidateTag(contentType, {})
+    revalidateTag('heroSection', {})
+    revalidateTag('globalSettings', {})
+    revalidateTag('seoMetadata', {})
+    revalidateTag('service', {})
+    revalidateTag('diplomaticExcellence', {})
+    revalidateTag('jurisdictionSection', {})
+    revalidateTag('naturalWonders', {})
+    revalidateTag('naturalWondersRwanda', {})
+    revalidateTag('stayConnected', {})
+    revalidateTag('socialFeedsSection', {})
+    revalidateTag('consularExcellence', {})
+    revalidateTag('headerSettings', {})
 
     return NextResponse.json({
       revalidated: true,
