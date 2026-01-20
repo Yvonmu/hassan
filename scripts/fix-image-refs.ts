@@ -48,8 +48,8 @@ async function fixImageRefs() {
         const currentPath = path ? `${path}.${key}` : key
         
         if (value && typeof value === 'object') {
-          if (value._type === 'image' && value.asset && value.asset._ref) {
-            const ref = value.asset._ref
+          if ('_type' in value && value._type === 'image' && 'asset' in value && value.asset && typeof value.asset === 'object' && 'asset' in value && '_ref' in value.asset) {
+            const ref = (value.asset as any)._ref
             if (typeof ref === 'string' && ref.startsWith('/images/')) {
               console.log(`❌ Found malformed image ref in ${doc._id} at ${currentPath}: ${ref}`)
               // Remove the malformed reference
