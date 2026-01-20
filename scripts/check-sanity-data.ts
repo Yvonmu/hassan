@@ -31,7 +31,7 @@ if (!token) {
 }
 
 const client = createClient({
-  projectId: 'ik1g399m',
+  projectId: 'db1likqs',
   dataset: 'production',
   useCdn: false,
   apiVersion: '2024-01-01',

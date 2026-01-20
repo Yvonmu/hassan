@@ -18,12 +18,12 @@ The document exists with ID: `heroSection.home`
 ### Debug Steps
 1. Check server logs - look for "Hero data fetched:" messages
 2. Verify environment variables are set:
-   - `NEXT_PUBLIC_SANITY_PROJECT_ID=ik1g399m`
+   - `NEXT_PUBLIC_SANITY_PROJECT_ID=db1likqs`
    - `NEXT_PUBLIC_SANITY_DATASET=production`
 3. The query is: `*[_type == "heroSection"][0]`
 
 ## Quick Test
 Run this to verify the document exists:
 ```bash
-node -e "const {createClient} = require('@sanity/client'); const client = createClient({projectId: 'ik1g399m', dataset: 'production', useCdn: false, apiVersion: '2024-01-01', token: 'YOUR_TOKEN'}); client.fetch('*[_type == \"heroSection\"][0]').then(data => console.log('Found:', data ? data.title : 'null')).catch(err => console.error('Error:', err.message));"
+node -e "const {createClient} = require('@sanity/client'); const client = createClient({projectId: 'db1likqs', dataset: 'production', useCdn: false, apiVersion: '2024-01-01', token: 'YOUR_TOKEN'}); client.fetch('*[_type == \"heroSection\"][0]').then(data => console.log('Found:', data ? data.title : 'null')).catch(err => console.error('Error:', err.message));"
 ```

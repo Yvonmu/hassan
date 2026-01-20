@@ -4,7 +4,7 @@ To enable instant updates when you publish content in Sanity Studio, you need to
 
 ## Quick Setup (Optional - for instant updates)
 
-1. **Go to Sanity Manage**: https://www.sanity.io/manage/project/ik1g399m/api/webhooks
+1. **Go to Sanity Manage**: https://www.sanity.io/manage/project/db1likqs/api/webhooks
 2. **Click "Create webhook"**
 3. **Configure:**
    - **Name**: `Next.js Revalidation`

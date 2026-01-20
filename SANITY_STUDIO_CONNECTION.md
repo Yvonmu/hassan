@@ -16,7 +16,7 @@ This is the easiest option for local development:
 
 2. **Or via Sanity Manage**:
    - Go to https://www.sanity.io/manage
-   - Select your project (ik1g399m)
+   - Select your project (db1likqs)
    - Go to **API** → **CORS origins** or **Studio** → **Development hosts**
    - Add: `http://localhost:3333` and `http://localhost:3000`
 
@@ -59,7 +59,7 @@ That's it! Your studio will now connect to your project.
 ### Still seeing the connection message?
 
 1. **Check your project ID**:
-   - Verify `NEXT_PUBLIC_SANITY_PROJECT_ID=ik1g399m` in `.env.local`
+   - Verify `NEXT_PUBLIC_SANITY_PROJECT_ID=db1likqs` in `.env.local`
    - Restart the dev server after changing env vars
 
 2. **Check your dataset**:

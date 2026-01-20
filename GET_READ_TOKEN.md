@@ -8,7 +8,7 @@ Document IDs with dots (like `heroSection.home`) are treated as **private** in S
 ### Step 1: Create the Token
 
 1. Go to [Sanity Manage](https://sanity.io/manage)
-2. Select your project: **ik1g399m**
+2. Select your project: **db1likqs**
 3. Go to **API** → **Tokens**
 4. Click **"Add API token"**
 5. Fill in:

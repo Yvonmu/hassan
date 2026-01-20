@@ -8,7 +8,7 @@ type SanityImageSource = any
 const readToken = process.env.NEXT_PUBLIC_SANITY_READ_TOKEN || process.env.SANITY_READ_TOKEN
 
 export const client = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'ik1g399m',
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'db1likqs',
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
   useCdn: true, // Use CDN for better reliability (can enable revalidation via webhooks)
   apiVersion: '2024-01-01', // Use current date (YYYY-MM-DD) to target the latest API version

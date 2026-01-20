@@ -5,7 +5,7 @@ import { resolve } from 'path'
 // Load environment variables
 dotenv.config({ path: resolve(process.cwd(), '.env.local') })
 
-const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'ik1g399m'
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'db1likqs'
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production'
 
 // Test with NO token (public access)

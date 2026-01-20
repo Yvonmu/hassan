@@ -8,7 +8,7 @@ Documents exist in Sanity (verified with token) but return `null` when queried w
 ### Step 1: Enable Public API Access
 
 1. Go to [Sanity Manage](https://sanity.io/manage)
-2. Select your project: **ik1g399m**
+2. Select your project: **db1likqs**
 3. Go to **API** → **CORS origins**
 4. Ensure your domain is added (or add `http://localhost:3000` for development)
 5. Go to **API** → **API settings**
@@ -30,7 +30,7 @@ Even though documents show as "published", they might need to be republished:
 After publishing, test the API:
 
 ```bash
-curl "https://ik1g399m.api.sanity.io/v2024-01-01/data/query/production?query=*%5B_type%20%3D%3D%20%22heroSection%22%5D%5B0%5D"
+curl "https://db1likqs.api.sanity.io/v2024-01-01/data/query/production?query=*%5B_type%20%3D%3D%20%22heroSection%22%5D%5B0%5D"
 ```
 
 Should return the document data, not `{"result":null}`.

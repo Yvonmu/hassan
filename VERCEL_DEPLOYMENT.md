@@ -35,7 +35,7 @@ git push
 In Vercel dashboard → Settings → Environment Variables, add:
 
 ```
-NEXT_PUBLIC_SANITY_PROJECT_ID=ik1g399m
+NEXT_PUBLIC_SANITY_PROJECT_ID=db1likqs
 NEXT_PUBLIC_SANITY_DATASET=production
 SANITY_API_TOKEN=your_token_here (optional, for webhooks)
 SANITY_REVALIDATE_SECRET=your_secret_here (optional, for webhooks)
@@ -86,7 +86,7 @@ If you prefer, you can also use Sanity's free hosted Studio:
 1. Go to https://www.sanity.io/manage
 2. Select your project
 3. Click "Open Studio"
-4. Access at: `https://ik1g399m.sanity.studio`
+4. Access at: `https://db1likqs.sanity.studio`
 
 This is always available and doesn't require deployment, but uses Sanity's domain instead of yours.
 

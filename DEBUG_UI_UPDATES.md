@@ -37,7 +37,7 @@ Components use fallback translations if Sanity data is missing:
 ### 6. Verify Environment Variables
 ```bash
 # Check .env.local has:
-NEXT_PUBLIC_SANITY_PROJECT_ID=ik1g399m
+NEXT_PUBLIC_SANITY_PROJECT_ID=db1likqs
 NEXT_PUBLIC_SANITY_DATASET=production
 ```
 

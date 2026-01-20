@@ -76,7 +76,7 @@ In Sanity Manage → API → Webhooks, add:
 ### 2. Environment Variables
 
 ```env
-NEXT_PUBLIC_SANITY_PROJECT_ID=ik1g399m
+NEXT_PUBLIC_SANITY_PROJECT_ID=db1likqs
 NEXT_PUBLIC_SANITY_DATASET=production
 SANITY_REVALIDATE_SECRET=your-secret-here (optional)
 ```

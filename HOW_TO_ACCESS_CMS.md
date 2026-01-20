@@ -109,7 +109,7 @@ Just open the Studio and start editing!
 
 **Studio won't start?**
 - Make sure you're in the project directory
-- Check that `.env.local` has `NEXT_PUBLIC_SANITY_PROJECT_ID=ik1g399m`
+- Check that `.env.local` has `NEXT_PUBLIC_SANITY_PROJECT_ID=db1likqs`
 - Try: `npm install` then `npm run studio`
 
 **Can't log in?**
